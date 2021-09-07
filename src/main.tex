@@ -1,0 +1,121 @@
+%! Author = zachprobst
+%! Date = 2021-09-05
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% Setup
+\title{Honours Analysis 3}
+\author{Zachary Probst \thanks{Valentino Tosatti}}
+\setlength{\parindent}{0pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+
+% Commands
+\newcommand{\siga}{\sigma\text{-algebra}}
+
+% Document
+\begin{document}
+
+    \maketitle
+
+    \section{Borel Sets}\label{sec:borel-sets}
+    
+    We will work for some time on $\mathbb{R}$ exclusively.
+    Before beginning Measure Theory: a quick recap of Topology.
+    
+    \begin{definition}[Open Set]
+        A subset $U \subset \mathbb{R}$ is called \emph{open} if either $U = \emptyset$ or else
+        \[
+            \forall x \in U, \exists r > 0 \text{ such that } (x-r,x+r) \subset U
+        \]
+    \end{definition}
+
+    Some examples of open sets: $\emptyset, \mathbb{R}, (a,b), (a,\infty), (-\infty, a)$.
+    There are many more because any union of an open set is still open and any finite intersection of open sets is open.
+
+    \begin{definition}[Closed Set]
+        $F \subset \mathbb{R}$ is called \emph{closed} if $\mathbb{R} \setminus F \coloneqq F^c $ is open.
+
+        $F$ is closed $\iff$ $F$ contains all points $x \in \mathbb{R}$ which have the property that $\forall r > 0, (x-r, x+r) \cap F \neq \emptyset$.
+    \end{definition}
+
+    If $F \subset \mathbb{R}$ is any set, the closure of $F$, denoted by $\overline{F}$, is the smallest closed set that contains $F$.
+
+    \begin{definition}[Compact]
+        A subset $G \subset \mathbb{R}$ is \emph{compact} if given any collection $\{ U_i \}_{i \in I}$ of open sets $U_i \subset \mathbb{R}$ with $G \subset \cup_{i \in I} U_i$, there exists $J \subset I$, $J$ finite, such that $G \subset \cup_{j \in J} U_j$
+    \end{definition}
+
+    \begin{theorem}[Heine-Borel]
+        $G \subset \mathbb{R}$ is compact $\iff$ $G$ is closed and bounded.
+        To be bounded means $G \subset (a,b)$ for some $a,b \in \mathbb{R}$.
+    \end{theorem}
+
+    \begin{corollary}[Nested Set Theorem]
+        Let $\{ F_n \}_{n=1}^{\infty}$ be a countable collection of non-empty, bounded, closed sets $F_n \subset \mathbb{R}$ with $F_{n+1} \subset F_n \forall n$, then
+        \[
+            \cap_{n=1}^{\infty} F_n \neq \emptyset
+        \]
+    \end{corollary}
+
+    \begin{proof}
+        Suppose $\cap_{n=1}^{\infty} F_n = \emptyset$ so let $U_n = F_{n}^{c}$ be open sets, such that $\cup_{n=1}^{\infty} U_n = \mathbb{R}$.
+        We also have that $U_n \subset U_{n+1}$, since the $F_n$ were nested.
+        Now $F_1$ is compact by Heine-Borel and $F_1 \subset \cup_{n=1}^{\infty} U_n \Rightarrow $ by compactness
+        I can find a finite subcover of $F_1$, say $F \subset \cup_{n=1}^{N} U_n = U_N = F_N ^{c}$
+
+        On the other hand $F_N \subset F_1$ by the nested property which implies $F_N = \emptyset$ which is a contradiction.
+    \end{proof}
+
+    \section{Measure Theory}\label{sec:measure-theory}
+
+    We want to measure the size of a set.
+    We will deal with a subset of $\mathbb{R}$.
+
+    It turns out that one needs to select a class of subsets of $\mathbb{R}$ that one wants to measure.
+    This class of subsets will have certain properties which are as follows.
+
+    \begin{definition}[$\siga$]
+        A collection $\mathcal{A}$ of subsets of $\mathbb{R}$ is called a $\siga$ if it satisfies
+        \begin{enumerate}
+            \item $\emptyset \in \mathcal{A}$
+            \item If $A \in \mathcal{A}$ then $A^c \in \mathcal{A}$
+            \item If $\{ A_n \}_{n=1}^{\infty} \subset \mathcal{A}$ then $\cup_{n=1}^{\infty} A_n \in \mathcal{A}$
+        \end{enumerate}
+    \end{definition}
+
+    Observe the following:
+    \begin{itemize}
+        \item $\mathbb{R} \in \mathcal{A}$ always
+        \item If $\{ A_n \}_{n=1}^{N} \subset \mathcal{A}$ then $\cup_{n=1}^{N} A_n \in \mathcal{A}$ (just define $A_n = \emptyset$ for $n > N$)
+        \item If $\{ A_n \}_{n=1}^{\infty} \subset \mathcal{A}$ then $\cap_{n=1}^{\infty} A_n \in \mathcal{A}$ (since $(\cap_{n=1}^{\infty} A_n)^c = \cup_{n=1}^{\infty} A_{n}^{c}$)
+        \item If $A,B \in \mathcal{A}$ then $A \setminus B \in \mathcal{A}$ too since $A \setminus B = A \cap B^c$
+    \end{itemize}
+
+    \underline{\textbf{Examples}:}
+
+    \begin{enumerate}
+        \item $\mathcal{A} = \{ \emptyset, \mathbb{R} \}$ ``Minimal $\siga$''
+        \item $\mathcal{A} = \mathcal{P}(\mathbb{R}) = $ Collection of all subsets of $\mathbb{R}$.
+        ``Maximum $\siga$''
+    \end{enumerate}
+    
+    In fact, if $\mathcal{A}$ is any $\siga$, then $\{ \emptyset,\mathbb{R} \} \subseteq \mathcal{A} \subseteq \mathcal{P}(\mathbb{R})$\\
+
+    For better examples, let $F$ be any collection of subsets of $\mathbb{R}$.
+    I want to make $F$ into a $\siga$.
+    Define $m = \{ \mathcal{A} \mid \mathcal{A} \text{ is a } \siga \text{ that satisfies } F \subset \mathcal{A} \}$.
+    $m \neq \emptyset$ since it contains $\mathcal{P}(\mathbb{R})$
+
+    If $\mathcal{A}, \mathcal{B} \in m$, I can define $\mathcal{A} \cap \mathcal{B} = \{ A \subset \mathbb{R} \mid A \in \mathcal{A} \text{ and } A \in \mathcal{B} \}$ and I can do the same for $\cap_{i \in I} \mathcal{A}$ arbitrary intersection of $\siga$ is still a $\siga$
+
+\end{document}
