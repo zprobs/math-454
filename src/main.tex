@@ -1,4 +1,4 @@
-%! Author = zachprobst
+\usepackage{amsfonts}\usepackage{amsfonts}%! Author = zachprobst
 %! Date = 2021-09-05
 
 % Preamble
@@ -12,7 +12,7 @@
 
 % Setup
 \title{Honours Analysis 3}
-\author{Zachary Probst \thanks{Valentino Tosatti}}
+\author{Zachary Probst \thanks{Notes from the lectures of Valentino Tosatti}}
 \setlength{\parindent}{0pt}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -29,7 +29,6 @@
 \begin{document}
 
     \maketitle
-
 
     \section{Borel Sets}\label{sec:borel-sets}
 
@@ -178,6 +177,12 @@
 
     \underline{Step 1:} construct Lebesgue outer measure $m^{\star}: \pwr{R} \rightarrow [0, \infty]$ satisfying requirements 1,2, and 3.\\
 
-    \underline{Step 2:} Use $m^{\star}$ to define $\mathcal{A}$ and let $m \subset m^{\star} \mid \mathcal{A}$
+    \underline{Step 2:} Use $m^{\star}$ to define $\mathcal{A}$ and let $m \subset m^{\star} \mid \mathcal{A}$\\
+
+    To create this Lebesgue outer measure on $\mathbb{R}$ we satisfy weakened version of requirement (3) that can be called (3w).
+    For any countably infinite collection $\{ E_j \}_{j=1}^{\infty}$ of arbitrary subsets $E_j \subset \mathbb{R}$
+    \[
+        m^{\star}(\cup_{j=1}^{\infty} E_j) \leq \sum_{j=1}^{\infty} m(E_j)
+    \]
 
 \end{document}
