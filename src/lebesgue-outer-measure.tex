@@ -1,0 +1,142 @@
+We are hoping to measure the size of subsets of $\mathbb{R}$.
+Ideally we would like to find or construct a function
+\[
+    m: \pwr{R} \rightarrow \mathbb{R}_{\geq 0} \cup \{ + \infty \} = [0, \infty]
+\]
+Which satisfies the following measure requirements:
+\begin{enumerate}
+    \item If $I=[a,b]$ or $(a,b)$ or $[a,b)$, or $(a,b]$, $a,b \in \mathbb{R}, a \leq b$ then $m(I) = b-a = $ measure of interval
+    \item $m$ is translation invariant.
+    i.e if $E \subset \mathbb{R}$ and $x \in \mathbb{R}$, let $E + x = \{ y+x \mid y \in E \}$ then $m(E+x)$ = m(E)
+    \item If $\{ E_j \}_{j=1}^{n}$ is a finite collection of pairwise disjoint $E_j \subset \mathbb{R}$ then
+    \[
+        m \left( \cup_{j=1}^{n} E_j \right) = \sum_{j=1}^{n} m(E_j)
+    \]
+    \item The same as (3) except for $n = \infty$
+\end{enumerate}
+
+\begin{theorem}
+    There is no such $m$ satisfying all 4 requirements
+\end{theorem}
+
+The proof for this will come later.
+The solution for this is that we do not try to measure all subsets of $\mathbb{R}$.
+So we have $m: \pwr{R} \rightarrow [0, \infty]$ but now we will just be happy with $m: \mathcal{A} \rightarrow [0,\infty]$ where $\mathcal{A}$ is a $\siga$ which has enough elements.
+For example $\mathcal{A} > \mathcal{B}$.
+
+We will follow H. Lebesgue as we proceed in two steps.
+
+\underline{Step 1:} construct Lebesgue outer measure $m^{\star}: \pwr{R} \rightarrow [0, \infty]$ satisfying requirements 1,2, and 3.
+
+\underline{Step 2:} Use $m^{\star}$ to define $\mathcal{A}$ and let $m \subset m^{\star} \mid \mathcal{A}$
+
+To create this Lebesgue outer measure on $\mathbb{R}$ we satisfy a weakened version of requirement (3) that can be called (3w).
+For any countably infinite collection $\{ E_j \}_{j=1}^{\infty}$ of arbitrary subsets $E_j \subset \mathbb{R}$
+\[
+    m^{\star}(\cup_{j=1}^{\infty} E_j) \leq \sum_{j=1}^{\infty} m(E_j)
+\]
+\begin{theorem}[Lebesgue Outer Measure]
+    There is a map $m^{\star}: \pwr{R} \rightarrow \rinf $ that satisfies the measure requirements 1, 2, and 3w.
+\end{theorem}
+
+This $m^{\star}$ is called the Lebesgue outer measure on $\mathbb{R}$.
+
+How do we define outer measure $m^{\star}(A)$?
+
+Observe that any $A \subseteq \mathbb{R}$ can be covered by some countable infinite collection $\{ I_j \}_{j=1}^{\infty}$ of bounded open intervals, which are allowed to be empty, but we do not assume that $I_j$ be pairwise disjoint.
+
+For example: $I_j = (-j, j), \; j=1,2,3\hdots$
+
+Let
+\[
+    \mathcal{C}_A = \{ \{I_j\}_{j=1}^{\infty} \mid I_j \text{ bounded open intervals such that } A \subset \cup_{j=1}^{\infty} I_j \}
+\]
+$\mathcal{C}_A \neq \emptyset$ by our example so for each $\{ I_j \} \in \mathcal{C}_A$, I can consider
+\[
+    \sum_{j=1}^{\infty} \ell(I_j) \in \rinf \tag{$\ell$ denotes length}
+\]
+
+\begin{definition}[Outer Measure]
+    \[
+        \boxed{m^{\star}(A) \coloneqq \inf_{\{ I_j \} \in \mathcal{C_A}} \sum_{j=1}^{\infty} \ell (I_j)  } \in \rinf
+    \]
+\end{definition}
+
+This defines a map $m^{\star}: \pwr{R} \rightarrow \rinf$
+
+\underline{Simple Properties:}
+
+\begin{itemize}
+    \item \emph{Monotonicity}:
+    If $A \subseteq B$ then $m^{\star}(A) \leq m^{\star}(B)$.
+    Indeed by definition $\mathcal{C}_B \subseteq \mathcal{C}_A$ hence the infimum over $\mathcal{C}_B$ is $\geq$ than the infimum over $\mathcal{C}_A$.
+    \item \emph{Empty Set}: $\mstar{\emptyset} = 0$.
+    Given any $1 > \epsilon > 0$, let $I_j = (-\epsilon^{j}, \epsilon^j), \; j=1,2,\hdots$
+    $\{I_j\} \in \mathcal{C}_{\emptyset}$ and $\sum_{j=1}^{\infty} \ell (I_j) = 2 \sum_{j=1}^{\infty} \epsilon^j = \frac{2\epsilon}{1-\epsilon} $ from the geometric series going to zero so $\mstar{\emptyset} \leq \frac{2\epsilon}{1-\epsilon} \; \forall 0 < \epsilon < 1$
+    \item If $A \in \mathbb{R}$ is finite or countable infinite then $\mstar{A} = 0$.
+    Indeed enumerate all elements of $A$ by $\{ a_j \}_{j=1}^{\infty}$.
+    (If $A$ is finite say $\card{A} = n$ let $a_j = a_n$ for all $j > n$).
+    For any $0 < \epsilon < 1$, let $I_j = \left( -\epsilon^j + a_j, a_j + \epsilon^j \right)$ so $A \subseteq \cup_{j=1}^{\infty} I_j$ and $\isum{j} \ell (I_j) = \frac{2\epsilon}{1-\epsilon}$ hence as before, $\mstar{A} = 0$.
+    For example $\mstar{\mathbb{Q}} = 0$
+\end{itemize}
+
+We will now prove that the Lebesgue outer measure satisfies 1, 2, and 3w of the measure requirements.
+
+\underline{Proof of Property 1}:
+i.e $\mstar{I} = \ell(I)$ for any interval $I \subseteq \mathbb{R}$
+
+Assume that $I = [a,b]$, $a < b$ are finite numbers.
+Assume that $I$ is a bounded closed interval.
+Our goal is to show that $\mstar{I} = b -a$.
+One direction of inequality is easy to prove, the other is quite tedious and will be left out.
+
+For any $\epsilon > 0$ let $I_1 = (a-\epsilon, b + \epsilon) > I$, let $I_j = \emptyset, j \geq 2$ so $\{I_j \} \in \mathcal{C}_I \Rightarrow \mstar{I} \leq \isum{j} \ell (I_j) = b - a + 2 \epsilon$.
+Let $\epsilon \rightarrow 0$ and we obtain $\mstar{I} \leq b-a$.
+
+\underline{Proof of Property 2}:
+i.e $\forall A \subset \mathbb{R}, \forall x \in \mathbb{R}$, $\mstar{A+x} = \mstar{A}$
+
+$\mathcal{C}_A$ and $\mathcal{C}_{A+x}$ are naturally in bijection via $\{ I_j \} \leftrightarrow \{ I_j + x \}$.
+Furthermore $\ell (I_j + x) = \ell (I_j)$
+\begin{align*}
+    \mstar{A+x} &= \inf_{\{I_j +x\} \in \mathcal{C}_{A+x}} \isum{j} \ell (I_j + x) \\
+    &= \inf_{\{I_j\} \in \mathcal{C}_{A}} \isum{j} \ell (I_j) = \mstar{A}
+\end{align*}
+
+\underline{Proof of Property 3w}:
+i.e If $\{ E_j \}_{j=1}^{n}$ is a finite collection of pairwise disjoint $E_j \subset \mathbb{R}$ then $\mstar{\cup_{j=1}^{n} E_j} = \sum_{j=1}^{n} \mstar{E_j}$
+
+If $\mstar{E_j} = +\infty$ for some $j$, then the property holds.
+We may assume that $\mstar{E_j} < + \infty \; \forall j$.
+Let $\epsilon > 0$.
+By the definition of infimum, for each $j \geq 0$, there is
+\[
+    \{ I_{j,k} \}_{k=1}^{\infty} \in \mathcal{C}_{E_j} \text{ such that } \isum{k} \ell (I_{j,k}) < \mstar{E_j} + \epsilon 2^{-j}
+\]
+Thus $\{ I_{j,k} \}_{k=1}^{\infty}$ is still countable and it covers $\cup_{j=1}^{\infty} E_j$ meaning it belongs to $\mathcal{C}_{\cup_{j=1}^{\infty}} E_j$, so by definition
+\[
+   \mstar{\bigcup_{j=1}^{\infty} E_j} \leq \sum_{j=1}^{\infty} \isum{k} \ell (I_{j,k}) < \sum_{j=1}^{\infty} (\mstar{E_j} + \epsilon 2^{-j}) = \sum_{j=1}^{\infty} \mstar{E_j} + \epsilon
+\]
+Then let $\epsilon \rightarrow 0$.
+Clearly, by taking all $E_j = \emptyset$ except finitely many, we have the same subadditivity 3w for finite collections.
+
+\begin{corollary}
+    $\mstar{[0,1] \cap (\mathbb{R} \setminus \mathbb{Q})} = 1 = \ell([0,1])$
+\end{corollary}
+\begin{proof}
+    \begin{align*}
+        \mstar{[0,1] \cap (\mathbb{R} \setminus \mathbb{Q})} &\leq \mstar{[0,1]} = 1 \\
+        &\leq \mstar{[0,1] \cap (\mathbb{Q})} + \mstar{[0,1] \cap (\mathbb{R} \setminus \mathbb{Q})} \\
+        &\leq 0 + 1
+    \end{align*}
+\end{proof}
+
+\begin{corollary}
+    $\mathbb{R} \setminus \mathbb{Q}$ is uncountable
+\end{corollary}
+\begin{proof}
+    If not, then
+    \[
+        \mstar{\mathbb{R} \setminus \mathbb{Q}} = 0 \geq \mstar{[0,1] \cap (\mathbb{R} \setminus \mathbb{Q})} = 1 \qedhere
+    \]
+\end{proof}

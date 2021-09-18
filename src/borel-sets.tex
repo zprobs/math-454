@@ -1,0 +1,45 @@
+We will work for some time on $\mathbb{R}$ exclusively.
+Before beginning Measure Theory: a quick recap of Topology.
+
+\begin{definition}[Open Set]
+    A subset $U \subset \mathbb{R}$ is called \emph{open} if either $U = \emptyset$ or else
+    \[
+        \forall x \in U, \exists r > 0 \text{ such that } (x-r,x+r) \subset U
+    \]
+\end{definition}
+
+Some examples of open sets: $\emptyset, \mathbb{R}, (a,b), (a,\infty), (-\infty, a)$.
+There are many more because any union of an open set is still open and any finite intersection of open sets is open.
+
+\begin{definition}[Closed Set]
+    $F \subset \mathbb{R}$ is called \emph{closed} if $\mathbb{R} \setminus F \coloneqq F^c $ is open.
+
+    $F$ is closed $\iff$ $F$ contains all points $x \in \mathbb{R}$ which have the property that $\forall r > 0, (x-r, x+r) \cap F \neq \emptyset$.
+\end{definition}
+
+If $F \subset \mathbb{R}$ is any set, the closure of $F$, denoted by $\overline{F}$, is the smallest closed set that contains $F$.
+
+\begin{definition}[Compact]
+    A subset $G \subset \mathbb{R}$ is \emph{compact} if given any collection $\{ U_i \}_{i \in I}$ of open sets $U_i \subset \mathbb{R}$ with $G \subset \cup_{i \in I} U_i$, there exists $J \subset I$, $J$ finite, such that $G \subset \cup_{j \in J} U_j$
+\end{definition}
+
+\begin{theorem}[Heine-Borel]
+    $G \subset \mathbb{R}$ is compact $\iff$ $G$ is closed and bounded.
+    To be bounded means $G \subset (a,b)$ for some $a,b \in \mathbb{R}$.
+\end{theorem}
+
+\begin{corollary}[Nested Set Theorem]
+    Let $\{ F_n \}_{n=1}^{\infty}$ be a countable collection of non-empty, bounded, closed sets $F_n \subset \mathbb{R}$ with $F_{n+1} \subset F_n \forall n$, then
+    \[
+        \cap_{n=1}^{\infty} F_n \neq \emptyset
+    \]
+\end{corollary}
+
+\begin{proof}
+    Suppose $\cap_{n=1}^{\infty} F_n = \emptyset$ so let $U_n = F_{n}^{c}$ be open sets, such that $\cup_{n=1}^{\infty} U_n = \mathbb{R}$.
+    We also have that $U_n \subset U_{n+1}$, since the $F_n$ were nested.
+    Now $F_1$ is compact by Heine-Borel and $F_1 \subset \cup_{n=1}^{\infty} U_n \Rightarrow $ by compactness
+    I can find a finite subcover of $F_1$, say $F \subset \cup_{n=1}^{N} U_n = U_N = F_N ^{c}$
+
+    On the other hand $F_N \subset F_1$ by the nested property which implies $F_N = \emptyset$ which is a contradiction.
+\end{proof}
