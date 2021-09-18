@@ -1,0 +1,157 @@
+%! Author = zachprobst
+%! Date = 2021-09-11
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+% Setup
+\title{Homework 1}
+\author{Zachary Probst}
+\setlength{\parindent}{0pt}
+\newtcolorbox{mybox}{colback=blue!5!white,colframe=blue!75!black}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+
+% Commands
+\newcommand{\siga}{\sigma\text{-algebra}}
+\newcommand{\pwr}[1]{\mathcal{P}(\mathbb{#1})}
+\newcommand{\pr}{^{\prime}}
+
+% Document
+\begin{document}
+
+    \maketitle
+
+    \begin{mybox}
+        \textbf{Chapter 1 Problem 33:} \\
+        Show that the Nested Set Theorem is false if $F_1$ is unbounded.
+    \end{mybox}
+
+    Let $\{ F_n \}_{n=1}^{\infty} = \{ [n,\infty), n \in \mathbb{N} \}$.
+    We have $F_1 = [1, \infty)$ so $F_1$ is unbounded.\\
+
+    Assume that the Nested Set Theorem holds for descending countable collections of nonempty closed sets.
+    Then there is some $x \in \mathbb{R}$ such that
+    \[
+        x \in \cap_{n=1}^{\infty} F_n
+    \]
+    Let $n\pr = \ceil{x}$ be the smallest integer larger than $x$.
+    Then clearly $x \notin [n\pr, \infty)$ and so $x \notin F_{n\pr}$.
+    But this is a contradiction so it must be that
+    \[
+        \cap_{n=1}^{\infty} F_n = \emptyset
+    \]
+    And the Nested Set Theorem does not hold for $F_1$ unbounded.\\
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 2 Problem 1:} \\
+        Prove that if there is a set $A$ in the collection $\mathcal{A}$ with $A \subseteq B$, then $m(A) \leq m(B)$.
+        This property is called \emph{monotonicity}.
+    \end{mybox}
+
+    If we have $A \subseteq B$ then we can write $B = A \cup (B \setminus A)$
+    \begin{align*}
+        \Rightarrow m(B) &= m(A \cup (B \setminus A)) \\
+        &= m(A) + m(B \setminus A) \tag{by countable additivity} \\
+        &\geq m(A)
+    \end{align*}
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 2 Problem 2:} \\
+        Prove that if there is a set $A$ in the collection $\mathcal{A}$ for which $m(A) < \infty$, then $m(\emptyset) = 0$.
+    \end{mybox}
+
+    Assume that $m(\emptyset) > 0$.
+    Define a countable collection of sets $\{ E_k \}_{k=1}^{\infty}$ where
+    \[
+        E_k = \begin{cases}
+                  A & k = 1 \\
+                  \emptyset & \text{otherwise}
+        \end{cases}
+    \]
+    Then since $A$ and $\emptyset$ are clearly disjoint, we apply countable additivity
+    \[
+        m(A) = m \left( \bigcup_{k=1}^{\infty} E_k \right) = \sum_{k=1}^{\infty} m(E_k)
+    \]
+    This sum diverges since we assumed that $m(\emptyset) > 0$, but this is a contradiction since $m(A) < \infty$.
+    Hence, it must be that $m(\emptyset) = 0$.
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 2 Problem 3:} \\
+        Let $\{ E_k \}_{k=1}^{\infty}$ be a countable collection of sets in $\mathcal{A}$.
+        Prove that $m(\cup_{k=1}^{\infty} E_k) \leq \sum_{k=1}^{\infty} m(E_k)$
+    \end{mybox}
+
+    If $\{ E_k \}_{k=1}^{\infty}$ is disjoint then
+    \[
+        m \left( \bigcup_{k=1}^{\infty} E_k \right) = \sum_{k=1}^{\infty} m(E_k)
+    \]
+    And we are done.
+    In the case where $\{ E_k \}_{k=1}^{\infty}$ is not pair-wise disjoint then we define a new set:
+    \[
+        F_k = \{ e \in E_k \mid e \notin \cup _{i=1}^{\infty} E_i \setminus E_k \}
+    \]
+    $\{ F_k \}_{k=1}^{\infty}$ is a pair-wise disjoint collection because each $F_k$ has all the elements of $E_k$ except for the ones which are shared in other $E_i$.
+    This means that
+    \[
+        m(F_k) \leq m(E_k) \; \forall k
+    \]
+    By monotonicity since $F_k \subseteq E_k$.
+    Finally, using the fact that we have only removed non-unique values from $\{ E_k \}_{k=1}^{\infty}$ to build $\{ F_k \}_{k=1}^{\infty}$
+    \begin{align*}
+        m(\bigcup_{k=1}^{\infty} E_k) &= m(\bigcup_{k=1}^{\infty} F_k) = \sum_{k=1}^{\infty} m(F_k) \tag{$F_k$ disjoint} \\
+        &\leq \sum_{k=1}^{\infty} m(E_k)
+    \end{align*}
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 2 Problem 4:} \\
+        A set function $c$, defined on all subsets of $\mathbb{R}$, is defined as follows.
+        Define $c(E)$ to be $\infty$ if $E$ has infinitely many members and $c(E)$ to be equal to the number of elements in $E$ if $E$ is finite;
+        define $c(\emptyset) = 0$.
+        Show that $c$ is a countably additive and translation invariant set function.
+        This set function is called the \textbf{counting measure}
+    \end{mybox}
+
+    To prove \emph{countable additivity}, let $\{ E_k \}_{k=1}^{\infty}$ be a countable collection of disjoint sets of $\mathbb{R}$.
+    Since $\{ E_k \}_{k=1}^{\infty}$ is disjoint, by definition $\cup_{k=1}^{\infty} E_k$ will have the same cardinality as the sum of the cardinality of each $E_k$.
+    Well this is the same thing as
+    \[
+        c \left( \bigcup_{k=1}^{\infty} E_k \right) = \sum_{k=1}^{\infty} c(E_k)
+    \]
+    To prove \emph{translation invariance}, for any set $A \subset \mathbb{R}$ we can create a bijection $f: A \rightarrow A+y$ where $A+y = \{ x+y \mid x \in A \}$ for a given $y \in \mathbb{R}$.
+    \[
+        f(x) = x+y
+    \]
+    Let $x \in A + y$ be arbitrary.
+    Consider the fact that $x-y \in A$ and $f(x-y) = x - y + y = x$ so $f$ is surjective. \\
+
+    Assume that $f(a) = f(b)$.
+    Well then $a + y = b + y \Rightarrow a = b$ and so $f$ is injective.\\
+
+    Since $f$ is injective and surjective, it must be bijective and $\lvert A \rvert = \lvert A+y \rvert$ so
+    \[
+        c(A) = c(A+y)
+    \]
+
+
+\end{document}

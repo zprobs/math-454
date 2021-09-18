@@ -1,7 +1,7 @@
 ### TeX template
 
 ## Homeworks
-*.homework.tex
+[2-9].homework.*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
