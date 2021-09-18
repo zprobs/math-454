@@ -1,34 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.9.1)  11 SEP 2021 20:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.9.1)  18 SEP 2021 19:17
 entering extended mode
 **./main.tex
 (main.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-08-27>
-
-main.tex:1: LaTeX Error: \usepackage before \documentclass.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 \usepackage{
-                amsfonts}\usepackage{amsfonts}%! Author = zachprobst
-\usepackage may only appear in the document preamble, i.e.,
-between \documentclass and \begin{document}.
-
-
-main.tex:1: LaTeX Error: \usepackage before \documentclass.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 \usepackage{amsfonts}\usepackage{
-                                     amsfonts}%! Author = zachprobst
-\usepackage may only appear in the document preamble, i.e.,
-between \documentclass and \begin{document}.
-
-
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
 base/article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
@@ -191,20 +166,20 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 (/Users/zachprobst/Desktop/school/math454/out/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
 
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
 graphics/graphicx.sty
@@ -256,28 +231,31 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 \Gin@req@height=\dimen160
 \Gin@req@width=\dimen161
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
 
 
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
 amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
 
 
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
 amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (7.74777pt too wide) in paragraph at lines 66--67
+) [1
+
+{/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/data/pdftex/config
+/pdftex.map}]
+Overfull \hbox (7.74777pt too wide) in paragraph at lines 74--75
 \OT1/cmr/bx/n/10.95 Corollary 1.1.1 \OT1/cmr/m/n/10.95 (Nested Set Theorem)\OT1
 /cmr/bx/n/10.95 . \OT1/cmr/m/it/10.95 Let $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/1
 0.95 F[]\OMS/cmsy/m/n/10.95 g[]$ \OT1/cmr/m/it/10.95 be a countable collection
  []
 
 
-Overfull \hbox (1.722pt too wide) in paragraph at lines 73--77
+Overfull \hbox (1.722pt too wide) in paragraph at lines 81--85
 []\OT1/cmr/m/n/10.95 Suppose $\OMS/cmsy/m/n/10.95 \[]\OML/cmm/m/it/10.95 F[] \O
 T1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 ;$ \OT1/cmr/m/n/10.95 so let $\OML/cmm/m
 /it/10.95 U[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 F[]$ \OT1/cmr/m/n/10.95 
@@ -285,84 +263,66 @@ be open sets, such that $\OMS/cmsy/m/n/10.95 [[]\OML/cmm/m/it/10.95 U[] \OT1/cm
 r/m/n/10.95 =
  []
 
-[1
-
-{/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/data/pdftex/config
-/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
-
- []
-
 [2]
-Overfull \hbox (2.94508pt too wide) in paragraph at lines 130--131
+Overfull \hbox (2.94508pt too wide) in paragraph at lines 138--139
 \OT1/cmr/bx/n/10.95 Definition 2.2 \OT1/cmr/m/n/10.95 (Borel Sets)\OT1/cmr/bx/n
 /10.95 . \OT1/cmr/m/it/10.95 The $\OML/cmm/m/it/10.95 [] \OMS/cmsy/m/n/10.95 B
 $ \OT1/cmr/m/it/10.95 of Borel Sets is the $\OML/cmm/m/it/10.95 [] []$
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 171--175
-
+[3] [4]
+Overfull \hbox (2.46071pt too wide) in paragraph at lines 230--233
+\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.
+95 ; []$ $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 I[]\OMS/cmsy/m/n/10.95 g 2 C
+[]$ \OT1/cmr/m/n/10.95 and $[][] \OML/cmm/m/it/10.95 `\OT1/cmr/m/n/10.95 (\OML/
+cmm/m/it/10.95 I[]\OT1/cmr/m/n/10.95 ) = 2 [][] \OML/cmm/m/it/10.95 [] \OT1/cm
+r/m/n/10.95 = []$ from the geometric
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-
- []
-
-[4] (/Users/zachprobst/Desktop/school/math454/out/main.aux) ) 
+[5] [6] [7] [8] (/Users/zachprobst/Desktop/school/math454/out/main.aux) ) 
 Here is how much of TeX's memory you used:
- 2669 strings out of 480862
- 41782 string characters out of 2901731
- 345332 words of memory out of 3000000
- 20263 multiletter control sequences out of 15000+600000
- 415090 words of font info for 70 fonts, out of 8000000 for 9000
+ 2699 strings out of 480862
+ 42302 string characters out of 2901731
+ 346078 words of memory out of 3000000
+ 20293 multiletter control sequences out of 15000+600000
+ 417391 words of font info for 80 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 64i,11n,72p,309b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
- </Users/zachprobs
-t/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dp
-i600/tcrm1095.pk> </Users/zachprobst/Library/Application Support/MiKTeX/texmfs/
-data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm0600.pk> </Users/zachprobst/Library
-/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm
-0800.pk></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fo
-nts/type1/public/amsfonts/cm/cmbx10.pfb></Users/zachprobst/Library/Application 
-Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users
-/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publi
-c/amsfonts/cm/cmex10.pfb></Users/zachprobst/Library/Application Support/MiKTeX/
-texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/zachprobst/Lib
-rary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></Users/zachprobst/Library/Application 
-Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/
-zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
-/amsfonts/cm/cmr17.pfb></Users/zachprobst/Library/Application Support/MiKTeX/te
-xmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/zachprobst/Library
-/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.
-pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></Users/zachprobst/Library/Application Supp
-ort/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/zach
+ 64i,11n,72p,307b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </Use
+rs/zachprobst/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jk
+nappen/ec/dpi600/tcrm1095.pk> </Users/zachprobst/Library/Application Support/Mi
+KTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm0600.pk> </Users/zachpr
+obst/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec
+/dpi600/tcrm0800.pk></Users/zachprobst/Library/Application Support/MiKTeX/texmf
+s/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/zachprobst/Library/
+Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12
+.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></Users/zachprobst/Library/Application Sup
+port/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/za
+chprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/a
+msfonts/cm/cmmi12.pfb></Users/zachprobst/Library/Application Support/MiKTeX/tex
+mfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/zachprobst/Library
+/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></Users/zachprobst/Library/Application Supp
+ort/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/zach
 probst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/ams
-fonts/cm/cmti10.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmf
-s/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/zachprobst/Desktop/school/math454/out/main.pdf (4 page
-s, 185719 bytes).
+fonts/cm/cmr17.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs
+/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/zachprobst/Library/App
+lication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type
+1/public/amsfonts/cm/cmr9.pfb></Users/zachprobst/Library/Application Support/Mi
+KTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/zachprobs
+t/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts
+/cm/cmsy6.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/inst
+all/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/zachprobst/Library/Applica
+tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></
+Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb>
+Output written on /Users/zachprobst/Desktop/school/math454/out/main.pdf (8 page
+s, 242165 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 134 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
