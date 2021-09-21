@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.9.1)  18 SEP 2021 19:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.9.1)  18 SEP 2021 21:34
 entering extended mode
 **./main.tex
 (main.tex
@@ -153,6 +153,10 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
 \xmathstrut@box=\box52
 \xmathstrut@dim=\dimen157
 )
+(/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
+cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+)
 \c@theorem=\count272
 \c@corollary=\count273
 \c@definition=\count274
@@ -166,20 +170,20 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 (/Users/zachprobst/Desktop/school/math454/out/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
 graphics/graphicx.sty
@@ -231,14 +235,14 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 \Gin@req@height=\dimen160
 \Gin@req@width=\dimen161
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
 
 
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
 amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
 
 
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
@@ -279,50 +283,59 @@ cmm/m/it/10.95 I[]\OT1/cmr/m/n/10.95 ) = 2 [][] \OML/cmm/m/it/10.95 [] \OT1/cm
 r/m/n/10.95 = []$ from the geometric
  []
 
-[5] [6]) [7] [8] (/Users/zachprobst/Desktop/school/math454/out/main.aux) ) 
+[5] [6]) [7]
+Overfull \hbox (26.45297pt too wide) in paragraph at lines 122--124
+[]\OT1/cmr/m/n/10.95 Our goal is to show that Lebesgue measurable sets $\OMS/cm
+sy/m/n/10.95 L \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 E 
+\OMS/cmsy/m/n/10.95  \U/msb/m/n/10.95 R \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10
+.95 E[]\OMS/cmsy/m/n/10.95 g$
+ []
+
+[8] [9] (/Users/zachprobst/Desktop/school/math454/out/main.aux) ) 
 Here is how much of TeX's memory you used:
- 2717 strings out of 480862
- 42833 string characters out of 2901731
- 346078 words of memory out of 3000000
- 20302 multiletter control sequences out of 15000+600000
+ 2755 strings out of 480862
+ 43500 string characters out of 2901731
+ 346963 words of memory out of 3000000
+ 20336 multiletter control sequences out of 15000+600000
  417391 words of font info for 80 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 64i,11n,72p,330b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
- </Us
-ers/zachprobst/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/j
-knappen/ec/dpi600/tcrm1095.pk> </Users/zachprobst/Library/Application Support/M
-iKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm0600.pk> </Users/zachp
+ 64i,18n,72p,330b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </Users/zachp
 robst/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/e
-c/dpi600/tcrm0800.pk></Users/zachprobst/Library/Application Support/MiKTeX/texm
-fs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/zachprobst/Library
-/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx1
-2.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/font
-s/type1/public/amsfonts/cm/cmex10.pfb></Users/zachprobst/Library/Application Su
-pport/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/z
-achprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/
-amsfonts/cm/cmmi12.pfb></Users/zachprobst/Library/Application Support/MiKTeX/te
-xmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/zachprobst/Librar
-y/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/font
-s/type1/public/amsfonts/cm/cmr10.pfb></Users/zachprobst/Library/Application Sup
-port/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/zac
-hprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
-sfonts/cm/cmr17.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmf
-s/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/zachprobst/Library/Ap
-plication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb
-></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/typ
-e1/public/amsfonts/cm/cmr9.pfb></Users/zachprobst/Library/Application Support/M
-iKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/zachprob
-st/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfont
-s/cm/cmsy6.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/ins
-tall/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/zachprobst/Library/Applic
-ation Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb><
-/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1
-/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/zachprobst/Desktop/school/math454/out/main.pdf (8 page
-s, 242165 bytes).
+c/dpi600/tcrm1095.pk> </Users/zachprobst/Library/Application Support/MiKTeX/tex
+mfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm0600.pk> </Users/zachprobst/Lib
+rary/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/
+tcrm0800.pk></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/instal
+l/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/zachprobst/Library/Applicat
+ion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></U
+sers/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/p
+ublic/amsfonts/cm/cmex10.pfb></Users/zachprobst/Library/Application Support/MiK
+TeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/zachprobst
+/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/inst
+all/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/zachprobst/Library/Applica
+tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></U
+sers/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></Users/zachprobst/Library/Application Support/MiKT
+eX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/zachprobst/L
+ibrary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm
+/cmr17.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install
+/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/zachprobst/Library/Application
+ Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/
+zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
+/amsfonts/cm/cmr9.pfb></Users/zachprobst/Library/Application Support/MiKTeX/tex
+mfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/zachprobst/Librar
+y/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy
+6.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/font
+s/type1/public/amsfonts/cm/cmsy8.pfb></Users/zachprobst/Library/Application Sup
+port/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/za
+chprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/a
+msfonts/latxfont/line10.pfb></Users/zachprobst/Library/Application Support/MiKT
+eX/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /Users/zachprobst/Desktop/school/math454/out/main.pdf (9 page
+s, 251523 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
+ 142 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
