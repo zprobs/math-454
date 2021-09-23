@@ -1,0 +1,176 @@
+%! Author = zachprobst
+%! Date = 2021-09-21
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[makeroom]{cancel}
+\usepackage{tcolorbox}
+
+% Setup
+\title{Homework 2}
+\author{Zachary Probst}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+\newtcolorbox{mybox}{colback=blue!5!white,colframe=blue!75!black}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{prop}{Proposition}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{*corollary}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+
+% Commands
+\newcommand{\siga}{\sigma\text{-algebra}}
+\newcommand{\pwr}[1]{\mathcal{P}(\mathbb{#1})}
+\newcommand{\rinf}{\mathbb{R}_{\geq 0} \cup \{ + \infty \}}
+\newcommand{\mstar}[1]{m^{\star}\left(#1\right)}
+\newcommand{\isum}[1]{\sum_{#1=1}^{\infty}}
+\newcommand{\pr}{^{\prime}}
+
+% Document
+\begin{document}
+
+    \maketitle
+
+    \begin{mybox}
+        \textbf{Problem 1:}
+        Show that a set $E \subset \mathbb{R}$ is measurable if and only if for every interval $I \subset \mathbb{R}$ we have
+        \begin{equation}
+            \mstar{I} = \mstar{I \cap E} + \mstar{I \cap E^c}\label{eq:equation}
+        \end{equation}
+        To prove the nontrivial direction, we assume~(\ref{eq:equation}) and need to show that given any $A \subset \mathbb{R}$ with $\mstar{A} < \infty$ we have
+        \begin{equation}
+            \mstar{A} \geq \mstar{A \cap E} + \mstar{A \cap E^c}\label{eq:equation2}
+        \end{equation}
+    \end{mybox}
+
+    First we will show that we have
+    \[
+        \mstar{U} = \mstar{U \cap E} + \mstar{U + E^c}
+    \]
+    for any open set $U \subset \mathbb{R}$.
+    Since $U$ is open, it can be written as a countable union of disjoint open intervals $U = \cup_{k=1}^{\infty} I_k$.
+    Let $n \in \mathbb{N}$ be any natural number.
+    Define $F_n \coloneqq \cup_{k=1}^{n} I_k$.
+    Since $F_n$ is a countable union of intervals and intervals are measurable, $F_n$ is measurable by \emph{Proposition 7}.
+
+    By \emph{Proposition 6} we have:
+    \[
+        \mstar{E \cap F_n} = \sum_{k=1}^{n} \mstar{E \cap I_k}
+    \]
+    \begin{align*}
+        \mstar{F_n} &= \mstar{\bigcup_{k=1}^{n} I_k} \\
+        &= \sum_{k=1}^{n} \mstar{I_k} \tag{Proposition 6} \\
+        &= \sum_{k=1}^{n} \mstar{I_k \cap E} + \mstar{I_k \cap E^c}\tag{Equation~\eqref{eq:equation}} \\
+        &= \mstar{F_n \cap E} + \mstar{F_n \cap E^c} \tag{Proposition 6}\\
+    \end{align*}
+    Now take the limit as $n \rightarrow \infty$ on both sides of this equation and we arrive at
+    \begin{equation}
+        \mstar{U} = \mstar{U \cap E} + \mstar{U \cap E^c}\label{eq:equation3}
+    \end{equation}
+
+    Next let $\epsilon > 0$.
+    By the definition of infimum, There exists some $U = \cup_{k=1}^{\infty} I_k \in \mathcal{C}_A$ such that $\sum_{k=1}^{\infty} \ell (I_k) < \mstar{A} + \epsilon$.
+    $U$ is a countable union of nonempty open bounded intervals, so it must be its own minimal cover.
+    This means $\mstar{U} = \sum_{k=1}^{\infty} \ell (I_k)$.
+    Using monotonicity and the fact that $A \subset U$
+    \[
+        \mstar{A} \leq \mstar{U} < \mstar{A} + \epsilon
+    \]
+    Since we have $\mstar{A} < \infty$ we can subtract $\mstar{A}$ to arrive at
+    \[
+        0 \leq \mstar{U} - \mstar{A} < \epsilon
+    \]
+    For all $\epsilon$ so $\mstar{U} = \mstar{A}$.
+
+    Now to conclude:
+    \begin{align*}
+        \mstar{A} &= \mstar{U} \\
+        &= \mstar{U  \cap E} + \mstar{U \cap E^c} \tag{Equation~\eqref{eq:equation3}} \\
+        &\geq \mstar{A \cap E} + \mstar{A \cap E^c} \tag{$A \subset U$}
+    \end{align*}
+    So putting this result together with the trivial inequality in the other direction
+    \[
+        \mstar{A} = \mstar{A \cap E} + \mstar{A \cap E^c}
+    \]
+
+    \clearpage
+    \begin{mybox}
+        \textbf{Problem 2:}
+        Let $E \subset \mathbb{R}$ be any set.
+        Show that there is a $G_\delta$ set $F \supset E$ (in particular $F$ is measurable) with
+        \[
+            \mstar{F} = \mstar{E}
+        \]
+    \end{mybox}
+    By monotonicity we have $\mstar{E} \leq \mstar{F}$ for any $F$.
+
+    To show the reverse inequality, $\forall n \in \mathbb{N}$, from the definition of infimum, there must exist a collection $\{ I_{n_k} \}_{k=1}^{\infty}$ of open intervals such that $\{ I_{n_k} \}_{k=1}^{\infty} \in \mathcal{C}_E$ and
+    \[
+        \mstar{E} \leq \sum_{k=1}^{\infty} \ell (I_{n_k}) < \mstar{E} + \frac{1}{n}
+    \]
+    Define $F$ to be
+    \[
+        F \coloneqq \bigcap_{n=1}^{\infty} \bigcup_{k=1}^{\infty} I_{n_k}
+    \]
+    $F$ is a countable intersection since the natural numbers are countable and it is an open set since it is composed of intervals.
+    Therefore $F$ is a $G_{\delta}$.
+
+    For any $\epsilon > 0$, let $N \in \mathbb{N}$ be such that $\frac{1}{N} < \epsilon$.
+    \begin{align*}
+        \mstar{F} &= \bigcap_{n=1}^{\infty} \bigcup_{k=1}^{\infty} I_{n_k} \\
+        &\leq \mstar{\bigcup_{k=1}^{\infty} I_{N_k}} \tag{Monotonicity} \\
+        &\leq \sum_{k=1}^{\infty} \mstar{I_{N_k}} \tag{Subadditivity} \\
+        &< \mstar{E} + \frac{1}{N} \\
+        &< \mstar{E} + \epsilon \\
+    \end{align*}
+    This must mean that $\mstar{F} = \mstar{E}$
+
+    \clearpage
+    \begin{mybox}
+        \textbf{Chapter 2 Problem 10}
+        Let $A$ and $B$ be bounded sets for which there is an $\alpha > 0$ such that $\card{a-b} \geq \alpha$ for all $a \in A, b \in B$.
+        Prove that $\mstar{A \cup B} = \mstar{A} + \mstar{B}$
+    \end{mybox}
+
+    $A \cap B = \emptyset$ because otherwise there would be some $a \in A, b \in B$ such that $a = b \Rightarrow \card{a-b} = 0$ but $\card{a-b} > 0$ by definition.
+
+    Since $A$ and $B$ are disjoint, any minimal collection of bounded open intervals $I_k$ that cover $A \cup B$ can be split up into two disjoint collections $I_k^{A} \supseteq A$ and $I_k ^{B} \supseteq B$ where $I_k^{A} \cap I_k ^{B} = \emptyset \; \forall k$
+
+    \begin{align*}
+        \mstar{A \cup B} &= \inf_{\{I_k\} \in \mathcal{C}_{A \cup B}} \sum_{k=1}^{\infty} \ell (I_k) \\
+        &= \inf_{\{I_k^{A} \cup I_k^{B}\} \in \mathcal{C}_{A \cup B}} \sum_{k=1}^{\infty} \ell (I_k^{A}) + \sum_{k=1}^{\infty} \ell (I_k^{B})  \\
+        &= \inf_{\{I_k^{A}\} \in \mathcal{C}_A} \sum_{k=1}^{\infty} \ell (I_k^{A}) + \inf_{\{I_k^{B}\} \in \mathcal{C}_B} \sum_{j=1}^{\infty} \ell (I_k^{B})  \\
+        &= \mstar{A} + \mstar{B}
+    \end{align*}
+
+    \clearpage
+    \begin{mybox}
+        \textbf{Chapter 2 Problem 14:}
+        Show that if a set $E$ has positive outer measure, then there is a bounded subset of $E$ that also has positive outer measure.
+    \end{mybox}
+
+    Define an open interval $I_j \coloneqq (-j, j) \cap E$.
+    We claim that there is some $N \in \mathbb{N}$ such that $\mstar{I_N} > 0$.
+    If there were no such $N$, then $\mstar{I_j} = 0 \; \forall j$ and we could let $j \rightarrow \infty$
+    \begin{align*}
+        \mstar{E} &= \mstar{\bigcup_{j=1}^{\infty} I_j}\\
+        &\leq \isum{j} \mstar{I_j} \tag{Countable Subadditivity} \\
+        &= 0
+    \end{align*}
+    But this is a contradiction since $\mstar{E} > 0$.
+    Therefore there exists an $I_N$ bounded subset of $E$ that also has positive outer measure.
+
+
+\end{document}

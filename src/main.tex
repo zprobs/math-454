@@ -10,16 +10,16 @@
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage[makeroom]{cancel}
-
+\usepackage{tcolorbox}
 
 % Setup
 \title{Honours Analysis 3}
 \author{Zachary Probst \thanks{Notes from the lectures of Valentino Tosatti}}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{\baselineskip}%
+\setlength{\parskip}{\baselineskip}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\card}{\lvert}{\rvert}
-
+\newtcolorbox{mybox}{colback=blue!5!white,colframe=blue!75!black}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem*{prop}{Proposition}
@@ -35,6 +35,7 @@
 \newcommand{\rinf}{\mathbb{R}_{\geq 0} \cup \{ + \infty \}}
 \newcommand{\mstar}[1]{m^{\star}\left(#1\right)}
 \newcommand{\isum}[1]{\sum_{#1=1}^{\infty}}
+\newcommand{\pr}{^{\prime}}
 
 % Document
 \begin{document}
@@ -141,7 +142,7 @@
 
         Induction step $n \geq 2$
         \[
-            \bigcup_{j=1}^{\infty} E_j = \left( \bigcup_{j=1}^{n-1} E_j \right) \cup E_n \in \mathcal{L} \text{ by the $n=2$ case}
+            \bigcup_{j=1}^{\infty} E_j = \left( \bigcup_{j=1}^{n-1} E_j \right) \cup E_n \in \mathcal{L} \text{ by the $n=2$ case} \qedhere
         \]
     \end{proof}
     
