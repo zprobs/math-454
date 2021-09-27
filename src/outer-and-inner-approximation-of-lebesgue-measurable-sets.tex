@@ -1,0 +1,31 @@
+ \begin{definition}[Gebiet-Durchshnitt]
+     A subset $A \subset \mathbb{R}$ is called a $G_{\delta}$ if $A = \cap_{i=1}^{\infty} A_i$ where $A_i$ are all open (possibly empty).
+ \end{definition}
+
+ \begin{definition}[Ferm\'e-Somme]
+     A subset $A \subset \mathbb{R}$ is called a $F_\sigma$ if $A = \cup_{i=1}^{\infty} A_i$ where $A_i$ are all closed (possibly empty).
+ \end{definition}
+
+ Clearly, $A$ is $G_\delta \iff A^c$ is $F_\delta$.
+ Also clearly, all $\gdelta$ and $\fsigma$ sets are Borel.
+ Of course not all $\gdelta$ are open, e.g $[0,1] = \cap_{i=1}^{\infty} \left(- \frac{1}{i}, 1 + \frac{1}{i}\right)$ and not all $\fsigma$ are closed.
+ e.g. $(0,1) = \cup_{i=1}^{\infty} \left[\frac{1}{i}, 1-\frac{1}{i}\right]$
+
+$\mathbb{Q}$ is clearly $\fsigma$, so $\mathbb{R} \setminus \mathbb{Q}$ is $\gdelta$.
+ With this, we can give several equivalent formulations of measurability.
+
+ \begin{theorem}
+     Let $E \subset \mathbb{R}$ be any set, then the following are equivalent:
+     \begin{enumerate}
+         \item $E \in \mathcal{L}$
+         \item $\forall \epsilon > 0$, $\exists U \supset E$, $U$ open, $\mstar{U \setminus E} < \epsilon$
+         \item $\exists G \subset \mathbb{R}$ a $\gdelta$ set, $G \supset E$, with $\mstar{G \setminus E} = 0$
+         \item $\forall \epsilon > 0$, $\exists F \subset E$, $F$ closed, $\mstar{E \setminus F} < \epsilon$
+         \item $\exists F \subset \mathbb{R}$ a $\fsigma$ set, $F \subset E$ with $\mstar{E \setminus F} = 0$
+     \end{enumerate}
+ \end{theorem}
+
+ \begin{prop}
+     For an $E \in \mathcal{L}$ with $\mstar{E} < \infty$.
+     Then $\forall \epsilon > 0$, $\exists \{ I_j \}_{j=1}^{n}$ a finite disjoint family of open intervals so that if we let $U = \cup_{j=1}^{n} I_j$ (open) then $\mstar{E \Delta U} < \epsilon$.
+ \end{prop}
