@@ -1,0 +1,38 @@
+We can now take $m^{\star}$ and restrict it to $\mathcal{L}$. $m^{\star} \mid_{\mathcal{L}}$.
+\begin{definition}[Lebesgue Measure]
+    This Lebesgue Measure is a function
+    \[
+        m \coloneqq m^{\star} \mid_{\mathcal{L}} : \mathcal{L} \rightarrow \rinf
+    \]
+\end{definition}
+This means that for $E \in \mathcal{L}$ we define $m(E) = \mstar{E}$.
+Clearly, $m$ satisfies the measurability requirements 1, 2, \& 3 as we have proved earlier.
+It also satisfies requirement 4 which was requirement 3 for countably infinite sets.
+
+\begin{prop}
+    If $\{ E_j \}_{j=1}^{\infty}$ is a countably infinite collection of pairwise disjoint sets $E_j \in \mathcal{L}$ (possibly empty), then $\cup_{j=1}^{\infty} E_j \in \mathcal{L}$ and
+    \[
+        m\left(\bigcup_{j=1}^{\infty} E_j\right) = \sum_{j=1}^{\infty} m(E_j)
+    \]
+\end{prop}
+
+\begin{proof}
+    We proved earlier that $\cup_{j=1}^{\infty} E_j \in \mathcal{L}$ and that
+    \[
+        m\left(\bigcup_{j=1}^{\infty} E_j\right) \leq \sum_{j=1}^{\infty} m(E_j)
+    \]
+    For the opposite inequality, for each $n$ we proved earlier that
+    \[
+        m\left(\bigcup_{j=1}^{n} E_j\right) = \sum_{j=1}^{n} m(E_j)
+    \]
+    But $\cup_{j=1}^{n} E_j \subset \cup_{j=1}^{\infty} E_j$, hence
+    \[
+        m\left(\bigcup_{j=1}^{\infty} E_j\right) \geq m\left(\bigcup_{j=1}^{n} E_j\right) =  \sum_{j=1}^{n} m(E_j) \;\; \forall n
+    \]
+    Take the limit as $n \rightarrow \infty$ to get
+    \[
+        m\left(\bigcup_{j=1}^{\infty} E_j\right) \geq \sum_{j=1}^{\infty} m(E_j)
+    \]
+    As desired.
+    This argument shows that measurability requirement 3 and 3w together imply 4.
+\end{proof}
