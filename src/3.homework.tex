@@ -1,0 +1,161 @@
+%! Author = zachprobst
+%! Date = 2021-09-27
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[makeroom]{cancel}
+\usepackage{tcolorbox}
+
+% Setup
+\title{Homework 3}
+\author{Zachary Probst}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}%
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+\newtcolorbox{mybox}{colback=blue!5!white,colframe=blue!75!black}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{prop}{Proposition}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{*corollary}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+
+% Commands
+\newcommand{\siga}{\sigma\text{-algebra}}
+\newcommand{\pwr}[1]{\mathcal{P}(\mathbb{#1})}
+\newcommand{\rinf}{\mathbb{R}_{\geq 0} \cup \{ + \infty \}}
+\newcommand{\mstar}[1]{m^{\star}\left(#1\right)}
+\newcommand{\mdstar}[1]{m^{\star\star}\left(#1\right)}
+\newcommand{\isum}[1]{\sum_{#1=1}^{\infty}}
+\newcommand{\pr}{^{\prime}}
+\newcommand{\dpr}{^{\prime\prime}}
+\newcommand{\gdelta}{G_{\delta}}
+\newcommand{\fsigma}{F_{\sigma}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+% Document
+\begin{document}
+
+    \maketitle
+
+    \begin{mybox}
+        \textbf{Chapter 2 Problem 19}:
+        Let $E$ have a finite outer measure.
+        Show that if $E$ is not measurable, then there is an open set $\mathcal{O}$ containing $E$ that has finite outer measure and for which
+        \[
+            \mstar{\mathcal{O} \setminus E} > \mstar{\mathcal{O}} - \mstar{E}
+        \]
+    \end{mybox}
+
+    If $E \notin \mathcal{L}$ then by the negation of the properties of a measurable set there is some $N \in \mathbb{R}$ for which $\mstar{\mathcal{O} \setminus E} \geq N$ for any open set $\mathcal{O}$ that contains $E$.
+
+    By the definition of outer measure, there is a countable collection of open intervals $\{ I_k \}_{k=1}^{\infty}$ which covers $E$ and for which
+    \[
+        \isum{k} \ell (I_k) < \mstar{E} + N
+    \]
+    Define $\mathcal{O} \coloneqq \cup_{k=1}^{\infty} I_k$.
+    Then $\mathcal{O}$ is an open set containing $E$.
+    By the definition of outer measure of $\mathcal{O}$,
+    \[
+        \mstar{\mathcal{O}} \leq \isum{k} \ell (I_k) < \mstar{E} + N
+    \]
+    so that
+    \[
+        \mstar{\mathcal{O}} - \mstar{E} < N \tag{\mstar{E} < \infty}
+    \]
+    And we conclude with
+    \[
+        \mstar{\mathcal{O} \setminus E} \geq N > \mstar{\mathcal{O}} - \mstar{E}
+    \]
+    \clearpage
+    \begin{mybox}
+        \textbf{Chapter 2: Problem 22}
+        For any set $A$, define $\mdstar{A} \in [0, \infty]$ by
+        \[
+            \mdstar{A} = \inf \{\mstar{\mathcal{O}} \mid \mathcal{O} \supseteq A, \mathcal{O} \text{ open } \}
+        \]
+        How is this set function $m^{\star\star}$ related to outer measure $m^{\star}$?
+    \end{mybox}
+
+    If $\mstar{A} = \infty$ then $\mdstar{A} = \infty$ by monotonicity of $A \subset \mathcal{O} \Rightarrow \mstar{\mathcal{O}} \geq \infty$.
+    If $\mstar{A} < \infty$ and $A$ is measurable then $\forall \epsilon > 0$, $\exists \mathcal{O}$ open such that
+    \begin{align*}
+        \mstar{\mathcal{O} \setminus A} &< \epsilon \\
+        \mstar{\mathcal{O}} - \mstar{A} &< \epsilon \\
+        \mstar{\mathcal{O}} &< \mstar{A} + \epsilon
+    \end{align*}
+    So by the definition of infimum
+    \[
+        \mstar{A} = \inf \{\mstar{\mathcal{O}} \mid \mathcal{O} \supseteq A, \mathcal{O} \text{ open } \} = \mdstar{A}
+    \]
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 2 Problem 26:}
+        Let $\{ E_k \}_{k=1}^{\infty}$ be a countable disjoint collection of measurable sets.
+        Prove that for any set $A$.
+        \[
+            \mstar{A \cap \bigcup_{k=1}^{\infty} E_k} = \sum_{k=1}^{\infty} \mstar{A \cap E_k}
+        \]
+    \end{mybox}
+    By the distributive property of intersections we can write
+    \[
+        \mstar{A \cap \bigcup_{k=1}^{\infty} E_k} = \mstar{\bigcup_{k=1}^{\infty} A \cap  E_k}
+    \]
+    By countable subadditivity we have
+    \[
+        \mstar{\bigcup_{k=1}^{\infty} A \cap E_k} \leq \sum_{k=1}^{\infty} \mstar{A \cap E_k}
+    \]
+    For the opposite inequality, for each $n$ we proved in class that
+    \[
+        \mstar{\bigcup_{k=1}^{n} A \cap E_k} = \sum_{k=1}^{n} \mstar{A \cap E_k}
+    \]
+    But $\cup_{k=1}^{n} A \cap E_k \subset \cup_{k=1}^{\infty} A \cap E_k$, hence
+    \[
+        \mstar{\bigcup_{k=1}^{\infty} A \cap E_k} \geq \mstar{\bigcup_{k=1}^{n} A \cap E_k} = \sum_{k=1}^{n} \mstar{A \cap E_k} \;\; \forall n
+    \]
+    Take the limit as $n \rightarrow \infty$ to get
+    \[
+        \mstar{\bigcup_{k=1}^{\infty} A \cap E_k} \geq \sum_{k=1}^{\infty} \mstar{A \cap E_k}
+    \]
+    As desired.
+
+    \clearpage
+    \begin{mybox}
+        \textbf{Chapter 2 Problem 33:} Let $E$ be a non-measurable set of finite outer measure.
+        Show that there is a $\gdelta$ set $G$ that contains $E$ for which
+        \[
+            \mstar{E} = \mstar{G} \text{, while } \mstar{G \setminus E} > 0
+        \]
+    \end{mybox}
+
+    Since $E$ is non-measurable, any $\gdelta$ set that covers $E$ will have $\mstar{G \setminus E} > 0$ by the properties of measurability.
+
+    Indeed if $\exists G\pr$ such that $G\pr$ is $\gdelta$ and $E \subseteq G\pr$ and $\mstar{G\pr \setminus E} = 0$ then $E$ would be measurable.
+
+    In Homework 2 Problem 2 we proved that there is always a $G_\delta$ set $G \supset E$ (in particular $G$ is measurable) with
+    \[
+        \mstar{G} = \mstar{E}
+    \]
+    For any set $E \subset \R$.
+    We now apply that theory to say there does exist a $\gdelta$ set $G$ such that
+    \[
+        \mstar{E} = \mstar{G} \text{, while } \mstar{G \setminus E} > 0
+    \]
+
+
+\end{document}
