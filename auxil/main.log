@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.9.1)  27 SEP 2021 20:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.9.1)  18 OCT 2021 12:17
 entering extended mode
 **./main.tex
 (main.tex
@@ -604,7 +604,7 @@ ntable family with $\OML/cmm/m/it/10.95 E[] \OMS/cmsy/m/n/10.95 2 L 8\OML/cmm/m
  []
 
 [9] [10])
-Overfull \hbox (57.42126pt too wide) in paragraph at lines 59--59
+Overfull \hbox (57.42126pt too wide) in paragraph at lines 64--64
 []\OT1/cmr/bx/n/14.4 Outer and Inner Approximation of Lebesgue Measurable
  []
 
@@ -616,53 +616,100 @@ Overfull \hbox (2.36548pt too wide) in paragraph at lines 13--14
 ntably infinite collection of pairwise disjoint
  []
 
-[12]) [13] (/Users/zachprobst/Desktop/school/math454/out/main.aux) ) 
+[12]) (non-measurable-sets.tex) (cantor-set.tex [13] [14]
+cantor-set.tex:55: Undefined control sequence.
+l.55 ...{R}}$: Let $V$ be a Vitali set, $V \subest
+                                                   [0,1]$, then $\forall A \...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (5.33852pt too wide) in paragraph at lines 67--68
+[]\OT1/cmr/bx/n/10.95 Theorem 8.2. []\OT1/cmr/m/it/10.95 There is a continuous 
+(weakly) increasing function $\OML/cmm/m/it/10.95  \OT1/cmr/m/n/10.95 : [0\OML
+/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1] \OMS/cmsy/m/n/10.95 !
+ []
+
+
+Overfull \hbox (0.33519pt too wide) in paragraph at lines 67--68
+\OT1/cmr/m/n/10.95 [0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1]$ \OT1/cmr/m/it
+/10.95 that is surjective with $\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 (0) = 0
+$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 (1) = 1$ \OT
+1/cmr/m/it/10.95 such that $\OML/cmm/m/it/10.95 $ \OT1/cmr/m/it/10.95 is diffe
+rentiable
+ []
+
+
+Overfull \hbox (7.70624pt too wide) in paragraph at lines 70--72
+[]\OT1/cmr/m/n/10.95 First define $\OML/cmm/m/it/10.95 $ \OT1/cmr/m/n/10.95 on
+ $\OML/cmm/m/it/10.95 U[]$ \OT1/cmr/m/n/10.95 by setting it to be equal to the 
+constants $\OMS/cmsy/m/n/10.95 f[]\OML/cmm/m/it/10.95 ; []; [] ; []\OMS/cmsy/m/
+n/10.95 g$
+ []
+
+[15]
+Overfull \hbox (1.45203pt too wide) in paragraph at lines 99--100
+[]\OT1/cmr/m/it/10.95 If $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A[]\OMS/cmsy
+/m/n/10.95 g[]$ \OT1/cmr/m/it/10.95 are measurable sets
+ []
+
+[16]
+Overfull \hbox (11.21072pt too wide) detected at line 134
+\OML/cmm/m/it/10.95 m [] \OT1/cmr/m/n/10.95 = [] \OML/cmm/m/it/10.95 m [] \OMS/
+cmsy/m/n/10.95  [] [] \OML/cmm/m/it/10.95 m\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/1
+0.95 E[]\OT1/cmr/m/n/10.95 ) [] 0
+ []
+
+) [17] (/Users/zachprobst/Desktop/school/math454/out/main.aux) ) 
 Here is how much of TeX's memory you used:
- 12677 strings out of 480862
- 260177 string characters out of 2901731
- 539613 words of memory out of 3000000
- 30053 multiletter control sequences out of 15000+600000
+ 12689 strings out of 480862
+ 260521 string characters out of 2901731
+ 540613 words of memory out of 3000000
+ 30059 multiletter control sequences out of 15000+600000
  417559 words of font info for 81 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  101i,18n,108p,420b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
- </Users/za
-chprobst/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappe
-n/ec/dpi600/tcrm1095.pk> </Users/zachprobst/Library/Application Support/MiKTeX/
-texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm0600.pk> </Users/zachprobst/
-Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi6
-00/tcrm0800.pk></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/ins
-tall/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/zachprobst/Library/Appli
-cation Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type
-1/public/amsfonts/cm/cmex10.pfb></Users/zachprobst/Library/Application Support/
-MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/zachpro
-bst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfon
-ts/cm/cmmi12.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/i
-nstall/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/zachprobst/Library/Appl
-ication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
-</Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type
-1/public/amsfonts/cm/cmr10.pfb></Users/zachprobst/Library/Application Support/M
-iKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/zachprobs
-t/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts
-/cm/cmr17.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/inst
-all/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/zachprobst/Library/Applicat
-ion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Use
-rs/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pub
-lic/amsfonts/cm/cmr9.pfb></Users/zachprobst/Library/Application Support/MiKTeX/
-texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/zachprobst/Lib
-rary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/c
-msy6.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/f
-onts/type1/public/amsfonts/cm/cmsy8.pfb></Users/zachprobst/Library/Application 
-Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users
-/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publi
-c/amsfonts/cm/cmtt10.pfb></Users/zachprobst/Library/Application Support/MiKTeX/
-texmfs/install/fonts/type1/public/amsfonts/latxfont/line10.pfb></Users/zachprob
-st/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfont
-s/symbols/msbm10.pfb>
-Output written on /Users/zachprobst/Desktop/school/math454/out/main.pdf (13 pag
-es, 279934 bytes).
+ </Users/zachpr
+obst/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec
+/dpi600/tcrm1095.pk> </Users/zachprobst/Library/Application Support/MiKTeX/texm
+fs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm0600.pk> </Users/zachprobst/Libr
+ary/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/t
+crm0800.pk></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install
+/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/zachprobst/Library/Applicati
+on Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Us
+ers/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pu
+blic/amsfonts/cm/cmex10.pfb></Users/zachprobst/Library/Application Support/MiKT
+eX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/zachprobst/
+Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/insta
+ll/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/zachprobst/Library/Applicat
+ion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Us
+ers/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb></Users/zachprobst/Library/Application Support/MiKTe
+X/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/zachprobst/Li
+brary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/
+cmr17.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/
+fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/zachprobst/Library/Application 
+Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/z
+achprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/
+amsfonts/cm/cmr9.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texm
+fs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/zachprobst/Library
+/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6
+.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb></Users/zachprobst/Library/Application Supp
+ort/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/zac
+hprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
+sfonts/cm/cmtt10.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texm
+fs/install/fonts/type1/public/amsfonts/latxfont/line10.pfb></Users/zachprobst/L
+ibrary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/sy
+mbols/msbm10.pfb>
+Output written on /Users/zachprobst/Desktop/school/math454/out/main.pdf (17 pag
+es, 301983 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
+ 175 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

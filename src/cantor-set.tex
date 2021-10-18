@@ -1,0 +1,137 @@
+We showed earlier that if $A \subset \mathbb{R}$ is countable then $A \in \mathcal{L}$ and $m(A) = 0$.
+How about the converse;
+if $A \in \mathcal{L}$ has $m(A) = 0$, is $A$ countable?
+No!
+
+\begin{theorem}[Cantor]
+    There is a closed, uncountable set $\mathcal{C}$ with $m(\mathcal{C}) = 0$
+\end{theorem}
+
+Start with an interval $I = [0,1]$ and remove the middle $\frac{1}{3}$, namely $(\frac{1}{3}, \frac{2}{3})$.
+\begin{align*}
+    \mathcal{C}_1 &\coloneqq I \setminus \left(  \frac{1}{3}, \frac{2}{3} \right)  = \left[ 0, \frac{1}{3} \right] \bigcup \left[ \frac{2}{3}, 1 \right] \\
+    \mathcal{C}_2 &\coloneqq  \mathcal{C}_1 \setminus \left( \left( \frac{1}{9}, \frac{2}{9} \right) \bigcup  \left( \frac{7}{9}, \frac{8}{9} \right) \right) \\
+    \mathcal{C}_k &\coloneqq  \mathcal{C}_{k-1} \setminus \bigcup_{j=0}^{3^{k-1}-1} \left( \frac{3j + 1}{3^k} , \frac{3j + 2}{3^k}\right) \\
+    &= [0,1] \setminus \bigcup_{l=1}^{k} \bigcup_{j=0}^{3^{l-1}-1} \left( \frac{3j + 1}{3^l} , \frac{3j + 2}{3^l}\right)
+\end{align*}
+
+Thus $\{ \mathcal{C}_k \}_{k=1}^{\infty}$ is a very large descending (i.e nested $\mathcal{C} \subset \mathcal{C}_{k-1}$) sequence of closed sets, and $\mathcal{C}_k$ is a disjoint union of $2^k$ closed intervals of length $\frac{1}{3^k}$.
+Let then $\mathcal{C} = \bigcap_{k=1}^{\infty} \mathcal{C}_k$, so $\mathcal{C}$ is closed, and hence also measurable.
+
+Since $m(\mathcal{C}_k) = \left( \frac{2}{3} \right)^k$, $m(\mathcal{C}) \leq m(\mathcal{C}_k) \leq \left( \frac{2}{3} \right)^k \; \forall k$.
+Taking the limit as $k \rightarrow \infty$ we get $m(\mathcal{C}) = 0$.
+
+Suppose that $\mathcal{C}$ was countable, let $\{ c_k \}_{k=1}^{\infty}$ be an enumeration of all it's elements.
+Then writing $\mathcal{C}_1 = $ the disjoint union of 2 interavals, we must have that $c_1$ belongs to precisely one of them.
+Say $c_1 \notin F_1$.
+Now $F_1 \subset \mathcal{C}_2$ is made of 2 disjoint intervals, and one of them does not contain $c_2$, say $c_2 \notin F_2$.
+
+Continue this way until we get a sequence of $\{ F_k \} _{k=1}^{\infty}$, where $F_k$ is a closed interval, $F_{k+1} \subset F_k$, and $F_k \subset \mathcal{C}_k$, and $c_k \notin F_k$.
+By the nested set theorem, let $x \in \cap _{k=1}^{\infty} F_k$.
+Then
+\[
+    x \in \cap _{k=1}^{\infty} F_k \subset \cap _{k=1}^{\infty} \mathcal{C}_k = \mathcal{C}
+\]
+So $x \in \mathcal{C}$ but $\{ c_k \}_{k=1}^{\infty}$ enumerates ALL points of $\mathcal{C}$ so $\exists n$ such that $x = c_n$.
+Hence $x \notin F_n$ but this is a contradiction so we conclude that $\mathcal{C}$ is uncountable.
+
+Finally observe that $\mathcal{C}$ is closed and $\mathcal{C} \subset [0,1]$, so $\mathcal{C}$ is compact by Heine-Borel.
+
+There are two variations of this theorem.
+\begin{enumerate}
+    \item If instead of removing the middle third, we removed the middle $p\%$ where $0 < p < 100$, then we also get a Cantor set which has the same properties as $\mathcal{C}$.
+    \item We could also remove a \emph{smaller} proportion at each step, instead of a fixed one.
+    At each step we remove $2^{n-1}$ intervals of length $a^n$ for some $0 < a \leq \frac{1}{3}$.
+    Then the total length removed is $\sum_{n=1}^{\infty} 2^{n-1} a^n = \frac{a}{1-2a}$.
+    So, for this ``fat'' Cantor set $m(\mathcal{C}_{\text{fat}}) = 1 - \frac{a}{1-2a} = \frac{1 - 3a}{1-2a}$.
+    Which is indeed 0 when $a = \frac{1}{3}$ (standard Cantor), and $m(\mathcal{C}_{\text{fat}}) > 0$ for $0 < a < \frac{1}{3}$
+\end{enumerate}
+
+\begin{remark}
+    $\card{\mathcal{L}} = \card{\pwr{R}}$: $\leq$ is trivial so $\forall A \subset \mathcal{C}$, $A \in \mathcal{L}$ but $\card{\mathcal{C}} = \mathbb{R} \Rightarrow \card{\mathcal{L}} = \card{\pwr{R}}$
+\end{remark}
+
+\begin{remark}
+    $\card{\pwr{R} \setminus \mathcal{L}} = \card{\pwr{R}}$: Let $V$ be a Vitali set, $V \subest [0,1]$, then $\forall A \subset [2,3], V \cup A \notin \mathcal{L}$ and so $\card{\pwr{R}} \geq \card{\pwr{R} \setminus \mathcal{L}} \geq \card{\mathcal{P}([2,3])} = \card{\pwr{R}} $
+\end{remark}
+
+\textbf{\underline{Cantor-Lebesgue Function}}
+
+Let $U_k \coloneqq [0,1] \setminus \mathcal{C}_k$, which is $2^k - 1$ disjoint open intervals, of various lengths, and
+\[
+    U = [0,1] \setminus \mathcal{C} = [0,1] \setminus \bigcap_{k=1}^{\infty} \mathcal{C}_k = \bigcup_{k=1}^{\infty} U_k
+\]
+Thus $U$ is open on $[0,1]$ and $m(U) = m([0,1]) = 1$ since $m(\mathcal{C}) = 0$.
+
+\begin{theorem}
+    There is a continuous (weakly) increasing function $\phi : [0,1] \rightarrow [0,1]$ that is surjective with $\phi(0) = 0$ and $\phi(1) = 1$ such that $\phi$ is differentiable in $U$ and $\phi \pr (x) = 0$ $\forall x \in U$
+\end{theorem}
+
+First define $\phi$ on $U_k$ by setting it to be equal to the constants $\{ \frac{1}{2^k}, \frac{2}{2^k}, \hdots, \frac{2^k - 1}{2^k} \}$ on it's $2^k -1$ open intervals.
+Observe that if we increase $k \rightarrow k+1$, $U_{k+1}$ has more intervals but some of them are the same that we already had in $U_k$, and on those, the value of $\phi$ in the 2 steps agrees!
+
+Taking the union over $k$ defines $\phi$ on $U$.
+To extend $\phi$ to all of $[0,1]$, we let $\phi(0) = 0$ and for all $x \in \mathcal{C} \setminus \{ 0 \}$ let $\phi \card{x} \coloneqq \sup \{ \phi(y) \mid y \in U \cap [0,x) \}$ (this is finite since $ \leq 1$)
+
+We have defined a function $\phi: [0,1] \rightarrow [0,1)$ and it satisfies the specified properties.
+
+Consider now $\psi (x) \coloneqq \phi(x) + x$ for $x \in [0,1]$.
+Some obvious properties:
+\begin{itemize}
+    \item $\psi$ is continuous
+    \item $\psi$ is strictly increasing
+    \item $\psi(0) = 0$, $\psi(1) = 2$
+    \item $\psi([0,1]) = [0,2]$ and $\psi$ is a bijection between these
+    \item $\psi^{-1}: [0,2] \rightarrow [0,1]$ is continuous
+\end{itemize}
+
+\begin{prop}
+    $m(\psi(\mathcal{C})) = 1$ and $\exists E \subset \mathcal{C}$, $E \in \mathcal{L}$ such that $\psi(E) \notin \mathcal{L}$
+\end{prop}
+
+\begin{*corollary}
+    This set $E$ is measurable but not Borel.
+\end{*corollary}
+
+\begin{prop}[Continuity of Measure]
+
+    \begin{enumerate}
+        \item If $\{ A_j \}_{j=1}^{\infty}$ are measurable sets with $A_j \subset A_{j+1} \; \forall j$, then
+        \[
+            m\left( \bigcup_{j=1}^{\infty} A_j \right) = \lim_{j \rightarrow \infty} m(A_j)
+        \]
+        \item  If $\{ B_j \}_{j=1}^{\infty}$ are measurable sets with $B_{j+1} \subset B_j$ $\forall j$, and $m(B_j) < \infty \iff m(B_1) < \infty$ then
+        \[
+            m \left( \bigcap_{j=1}^{\infty} B_j \right) = \lim_{j \rightarrow \infty} m(B_j)
+        \]
+    \end{enumerate}
+
+\end{prop}
+
+\begin{definition}[Almost Everywhere]
+    We say some property ``$P$'' holds almost everywhere on $E$, or for a.e $x \in E$, if $\exists E_0 \subset E$ with $\mstar{E_0} = 0$ such that $P$ holds for \emph{all} $x \in E \setminus E_0$.
+    We also say ``$P$ holds for almost all $x$ in $E$''.
+\end{definition}
+
+\underline{Ex:} Almost every real number is irrational.
+
+\begin{prop}[Borel-Cantelli's Lemma]
+    Let $\{ E_j\}_{j=1}^{\infty} \subset \mathcal{L}$ be such that $\sum_{j=1}^{\infty} m(E_j) < \infty$.
+    Then almost every $x \in \mathbb{R}$ belongs to at most finitely many $E_j$'s.
+\end{prop}
+\begin{proof}
+    For each $n$,
+    \[
+        m\left( \bigcup_{j=n}^{\infty} \right) \leq \sum_{j=n}^{\infty} m(E_j) < \infty
+    \]
+    and
+    \[
+        \bigcup_{j=n+1}^{\infty} E_j \subset \bigcup_{j=n}^{\infty} E_j
+    \]
+    So by the continuity of measure
+    \[
+        m \left( \bigcap_{n=1}^{\infty} \bigcup_{j=n}^{\infty} E_j \right) = \lim_{n \rightarrow \infty} m \left( \bigcup_{j=n}^{\infty} E_j \right) \leq \lim_{n \rightarrow \infty} \sum_{j=n}^{\infty} m(E_j) \underbrace{=}_{\text{tails of a convergent series}} 0
+    \]
+    Hence ``almost every'' $x \in E$ satisfies $x \notin \cap_{n=1}^{\infty} \cup_{j=n}^{\infty} E_j$.
+    i.e for each such $x$, $\exists n$ such that $x \notin \cup_{j=n}^{\infty} E_n$ so $x$ belongs only to (at most) $E_1 \hdots E_{n-1}$
+\end{proof}
