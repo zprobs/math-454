@@ -11,6 +11,7 @@
 \usepackage{mathtools}
 \usepackage[makeroom]{cancel}
 \usepackage{tcolorbox}
+\usepackage{centernot}
 
 % Setup
 \title{Honours Analysis 3}
@@ -38,6 +39,10 @@
 \newcommand{\pr}{^{\prime}}
 \newcommand{\gdelta}{G_{\delta}}
 \newcommand{\fsigma}{F_{\sigma}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Le}{\mathcal{L}}
 
 % Document
 \begin{document}
@@ -74,6 +79,91 @@
 
     \section{Cantor Set}\label{sec:cantor-set}
     \input{cantor-set}
+    
+    \section{Measurable Functions}\label{sec:measurable-functions}
+
+    We shall now study functions $f : E \rightarrow [-\infty, \infty] \coloneqq \mathbb{R} \cup \{ \pm \infty \}$ where $E \subset \mathbb{R}$ is a \emph{measurable} set.
+
+    Sublevel sets of $f$ are the sets of the form $f^{-1}([-\infty, c)) = \{ x \in E \mid f(x) < c \}$, for some $c \in \mathbb{R}$
+
+    \begin{definition}
+        If we have $f : E \rightarrow [-\infty, \infty]$ with $E$ measurable, then we say that $f$ is measurable if all sublevel sets $f^{-1}([-\infty, c))$ are in $\mathcal{L}$ for all $x \in \mathbb{R}$.
+    \end{definition}
+
+    \begin{prop}
+        $f : E \rightarrow [-\infty, \infty]$, then the following are equivalent:
+        \begin{enumerate}
+            \item $f$ measurable
+            \item $\forall c \in \mathbb{R}$, $f^{-1}([-\infty, c]) = \{x \in E \mid f(x) \leq c \} \in \mathcal{L}$
+            \item $\forall c \in \mathbb{R}$, $f^{-1}((c, \infty]) = \{x \in E \mid f(x) > c \} \in \mathcal{L}$
+            \item $\forall c \in \mathbb{R}$, $f^{-1}([c, \infty])  \in \mathcal{L}$
+            \item $\forall U \subset \mathbb{R}$ open, $f^{-1}(U) \in \Le$
+            \item $\forall A \subset \mathbb{R}$ Borel set, $f^{-1}(A) \in \Le$
+        \end{enumerate}
+    \end{prop}
+
+    \underline{Ex:} If $E$ measurable, $f: E \rightarrow \R$ continuous, then $f$ is measurable.
+    Indeed, $\forall U \subset \R$ open, $f^{-1}(U)$ is open in $E$, i.e $f^{-1}(U) = V \cap E$ where $V \subset \R$ open.
+    Clearly $V \cap E \in \Le$, so $f$ is measurable.
+
+    \underline{Caution}: $f: E \rightarrow \R$ continuous and $A \subset \R$ measurable $\centernot\implies f^{-1}(A) \in \Le$.
+    For example: $E = [0,1], f = \psi^{-1}$ then we proved earlier that $\psi$ maps a measurable subset onto a non-measurable subset.
+
+    \begin{prop}
+        $f: [a,b] \rightarrow \R$ monotone $\implies f$ measurable
+    \end{prop}
+
+    \begin{proof}
+        without loss of generality, we may assume $f$ is monotone increasing $f(x) \leq f(y)$ whenever $x \leq y$.
+        For any $c \in \R$, look at $\{ f < c \}$ and assume it is non-empty.
+        We show that $\{ f < c \}$ is an interval $\subset [a,b]$.
+        Now, intervals $I \in \R$ are characterized by the property that if $x \leq y \in I$ then the whole segment $tx + (1-t)y$ is in $I$, for $0 \leq t \leq 1$.
+        So let $f(x) < c$, $f(y) < c$, then $tx + (1-t)y \leq y$ so $f(tx + (1-t)y) \leq f(y) < c$ too.
+
+        So $\{ f < c\}$ is an interval which means that $f$ is measurable.
+    \end{proof}
+
+    \begin{prop}
+        given $E \subset \R$ measurable, $f: E \rightarrow [-\infty, \infty]$ measurable
+        \begin{enumerate}
+            \item If $g: E \rightarrow [-\infty, \infty]$ is another function and $f=g$ a.e on $E$.
+            Then $g$ is measurable
+            \item Suppose $D \subset E$, $D$ measurable.
+            Then $f$ is measurable (as a function on $E$) $\iff$ $f\mid_{D}$ measurable (as a function on $D$) and $f \mid_{E \setminus D}$ is measurable (as a function on $E \setminus D$).
+        \end{enumerate}
+    \end{prop}
+
+    \begin{proof}
+    (1): Let $A = \{ x \in E \mid f(x) \ne g(x) \}$, which by assumption has $m(A) = 0$.
+        Then $\forall c \in \R$,
+        \begin{align*}
+            \{ x \in E \mid g(x) > c \} &= \{ x \in A \mid g(x) > c \} \cup \{ x \in E \setminus A \mid f(x) > c \} \\
+            &= \{ x \in A \mid g(x) > c \} \cup \underbrace{\{ x \in E\mid f(x) > c \}}_{\in \Le} \cap \underbrace{\{ E \setminus A \}}_{\in \Le}
+        \end{align*}
+        $\{ x \in A \mid g(x) > c \}$ is a subset of $A$ hence it has measure 0 and is also measurable so $\{ g > c \} \in \Le$.
+
+    (2): \begin{align*}
+             \{ x \in E \mid f(x) > c \} &= \{ x \in D \mid f(x) > c \} \cup \{ x \in E \setminus D \mid f(x) > c \} \\
+             &= ( \{ x \in E \mid f(x) > c \} \cap D) \cup (\{ x \in E \mid f(x) > c \} \cap (E \setminus D))
+    \end{align*}
+    \end{proof}
+
+    \underline{Sums and Products}: If $f,g : E \rightarrow [-\infty, \infty]$ can we consider their sum $f+g$?
+    Well, if $f(x) = \infty$ and $g(x) = -\infty$ then $f(x) + g(x)$ is definitely undefined.
+    Let us then assume that $f$ and $g$ are finite for a.e point in $E$.
+    Thus, $\exists E_0 \subset E$ with $m(E_0) = 0$, such that $f$ and $g$ are finite on $E \setminus E_0$.
+    We will now show that $f+g: E \setminus E_0 \rightarrow \R$ is measurable (on $E\setminus E_0$).
+    Then if $h: E \rightarrow [-\infty, \infty]$ is any function such that $h \mid_{E\setminus E_0} = (f+g)\mid_{E\setminus E_0}$ then $h$ is also measureable by part (2) above.
+    Observe that such an $h$ always exists (e.g set $h = f+g$ on $E \setminus E_0$ and $h=0$ on $E_0$), and it is not unique at all.
+    However, as we just said, all such $h$ are measurable.
+    We thus can say $f+g$ is measurable on $E$.
+
+    \begin{prop}
+        $f,g: E \rightarrow [-\infty, \infty]$ measurable such that $f,g$ are finite a.e on $E$.
+        Then $\forall \alpha, \beta \in \R$, $\alpha f + \beta g$ are measurable on $E$.
+    \end{prop}
+
+
 
 
 
