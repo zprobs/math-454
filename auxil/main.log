@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.9.1)  18 OCT 2021 18:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.9.1)  25 OCT 2021 15:28
 entering extended mode
 **./main.tex
 (main.tex
@@ -488,6 +488,10 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
+(/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
+amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
 \c@theorem=\count288
 \c@corollary=\count289
 \c@definition=\count290
@@ -501,20 +505,20 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 (/Users/zachprobst/Desktop/school/math454/out/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/contex
 t/base/mkii/supp-pdf.mkii
@@ -541,14 +545,14 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
 
 
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
 amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
 
 
 (/Users/zachprobst/Library/Application Support/MiKTeX/texmfs/install/tex/latex/
@@ -608,7 +612,7 @@ ntable family with $\OML/cmm/m/it/10.95 E[] \OMS/cmsy/m/n/10.95 2 L 8\OML/cmm/m
  []
 
 [9] [10])
-Overfull \hbox (57.42126pt too wide) in paragraph at lines 69--69
+Overfull \hbox (57.42126pt too wide) in paragraph at lines 70--70
 []\OT1/cmr/bx/n/14.4 Outer and Inner Approximation of Lebesgue Measurable
  []
 
@@ -668,16 +672,47 @@ cmsy/m/n/10.95  [] [] \OML/cmm/m/it/10.95 m\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/1
  []
 
 ) [17]
-Overfull \hbox (21.69704pt too wide) detected at line 148
+Overfull \hbox (21.69704pt too wide) detected at line 149
 []
  []
 
-[18] [19] (/Users/zachprobst/Desktop/school/math454/out/main.aux) ) 
+[18]
+Overfull \hbox (1.31998pt too wide) in paragraph at lines 167--168
+[]\OT1/cmr/m/n/10.95 However, composition of two measurable functions may fail 
+to be measurable: 
+ []
+
+[19] [20]
+Overfull \hbox (5.01662pt too wide) in paragraph at lines 234--235
+[]\OT1/cmr/bx/n/10.95 Proposition. []\OT1/cmr/m/it/10.95 If $\OML/cmm/m/it/10.9
+5 E \OMS/cmsy/m/n/10.95 2 L$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 f; f[
+] \OT1/cmr/m/n/10.95 : \OML/cmm/m/it/10.95 E \OMS/cmsy/m/n/10.95 ! \OT1/cmr/m/n
+/10.95 [\OMS/cmsy/m/n/10.95  1\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 1\OT1/c
+mr/m/n/10.95 ]$ \OT1/cmr/m/it/10.95 with all $\OML/cmm/m/it/10.95 f[]$ \OT1/cmr
+/m/it/10.95 being measurable
+ []
+
+
+Overfull \hbox (13.54323pt too wide) in paragraph at lines 244--246
+\OT1/cmr/m/it/10.95 In other words, simple functions are the same thing as fini
+te linear combinations
+ []
+
+
+Overfull \hbox (6.86609pt too wide) in paragraph at lines 262--265
+\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 f[]\OMS/cmsy/m/n/10.95 g[]$ \OT1/cmr/m
+/it/10.95 be measurable functions. $\OML/cmm/m/it/10.95 f[] \OT1/cmr/m/n/10.95 
+: \OML/cmm/m/it/10.95 E \OMS/cmsy/m/n/10.95 ! \OT1/cmr/m/n/10.95 [\OMS/cmsy/m/n
+/10.95  1\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 1\OT1/cmr/m/n/10.95 ]$ \OT1/
+cmr/m/it/10.95 which converge pointwise
+ []
+
+[21] [22] (/Users/zachprobst/Desktop/school/math454/out/main.aux) ) 
 Here is how much of TeX's memory you used:
- 12704 strings out of 480862
- 261000 string characters out of 2901731
- 540778 words of memory out of 3000000
- 30070 multiletter control sequences out of 15000+600000
+ 13113 strings out of 480862
+ 265182 string characters out of 2901731
+ 540627 words of memory out of 3000000
+ 30476 multiletter control sequences out of 15000+600000
  417559 words of font info for 81 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  101i,18n,108p,442b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -714,11 +749,12 @@ zachprobst/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
 /amsfonts/cm/cmtt10.pfb></Users/zachprobst/Library/Application Support/MiKTeX/t
 exmfs/install/fonts/type1/public/amsfonts/latxfont/line10.pfb></Users/zachprobs
 t/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts
-/symbols/msbm10.pfb>
-Output written on /Users/zachprobst/Desktop/school/math454/out/main.pdf (19 pag
-es, 312329 bytes).
+/symbols/msam10.pfb></Users/zachprobst/Library/Application Support/MiKTeX/texmf
+s/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /Users/zachprobst/Desktop/school/math454/out/main.pdf (22 pag
+es, 334640 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
+ 196 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
