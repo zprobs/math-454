@@ -1,0 +1,141 @@
+%! Author = zachprobst
+%! Date = 2021-10-25
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[makeroom]{cancel}
+\usepackage{tcolorbox}
+
+% Setup
+\title{Homework 5}
+\author{Zachary Probst}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}%
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+\newtcolorbox{mybox}{colback=blue!5!white,colframe=blue!75!black}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{prop}{Proposition}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{*corollary}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+
+% Commands
+\newcommand{\siga}{\sigma\text{-algebra}}
+\newcommand{\pwr}[1]{\mathcal{P}(\mathbb{#1})}
+\newcommand{\rinf}{\mathbb{R}_{\geq 0} \cup \{ + \infty \}}
+\newcommand{\mstar}[1]{m^{\star}\left(#1\right)}
+\newcommand{\isum}[1]{\sum_{#1=1}^{\infty}}
+\newcommand{\pr}{^{\prime}}
+\newcommand{\dpr}{^{\prime\prime}}
+\newcommand{\gdelta}{G_{\delta}}
+\newcommand{\fsigma}{F_{\sigma}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+% Document
+\begin{document}
+
+    \maketitle
+
+    \begin{mybox}
+        \textbf{Chapter 3 Problem 1:} Suppose $f$ and $g$ are continuous functions on $[a,b]$.
+        Show that if $f = g$ a.e on $[a,b]$, then, in fact $f = g$ on [a,b].
+        Is a similar assertion true if $[a,b]$ is replaced by a general measurable set $E$?
+    \end{mybox}
+
+    Suppose $f(x) \neq g(x)$ for some $x \in [a,b]$.
+    Let $\epsilon = \card{g(x) - f(x)}$.
+    Since $f$ is continuous, define $\delta_f > 0$ such that for $y \in [a,b]$
+    \[
+        \card{x - y} < \delta_f\implies \card{f(x) - f(y)} < \frac{\epsilon}{2}
+    \]
+    Define $\delta_g$ in the same way for $g$.
+    \[
+        \card{x - y} < \delta_g \implies \card{g(x) - g(y)} < \frac{\epsilon}{2}
+    \]
+    Now let $\delta = \min \{ \delta_f, \delta_g \}$.
+    On the interval $[x,x+\delta]$ (or $[x,x-\delta]$ if $b - x < \delta$) $f$ can only converge less than $\epsilon \mathbin{/} 2$ closer to $g$ and likewise $g$ can only converge less than $\epsilon \mathbin{/} 2$ closer to $f$ for all points in that neighborhood.
+    \[
+        \forall y \in [x, x + \delta], \; f(y) \neq g(y)
+    \]
+    But then the interval $[x, x+ \delta]$ has length $\delta > 0$ and hence has a non-zero measure so it is not true that $f = g$ a.e on $[a,b]$.
+
+    This assertion is not true if we replace $[a,b]$ with a measurable set $E$ with $m(E) = 0$.
+    This is because in fact any functions $f$ and $g$ satisfy the property $f = g$ a.e on $E$, in particular functions with $f(x) \neq g(x)$ for some $x \in E$.
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 3 Problem 3:} Suppose a function $f$ has a measurable domain and is continuous except at a finite number of points.
+        Is $f$ necessarily measurable?
+    \end{mybox}
+
+    Let $E$ denote the domain of $f$ and let $A \subset E$ be the set of all $x \in E$ where $f(x)$ is discontinuous.
+    $A$ is a finite set so we can enumerate every $x \in A$ as $x_1 \hdots x_n$.
+
+    Define $I_1 = [-\infty, x_1) \cap E$ and $I_{n+1} = (x_n, \infty] \cap E$.
+    For each $1 \leq j \leq n-1$, define $I_j = (x_j, x_{j+1}) \cap E$.
+    Now $f$ is continuous on each $I_j$ by construction.
+
+    Define $g_j: I_j \rightarrow \R = f: I_j \rightarrow \R$ so that each $g_j$ is continuous.
+    Each $I_j$ is measurable since it is an intersection of measurable sets, hence each $g_j$ is measurable.
+
+    Finally, define $h_j: \{ x_j \} \rightarrow \R = f(x_j)$ which is trivially measurable.
+
+    Since measurable functions are closed under addition, we have
+    \[
+        f = \sum_{j=1}^{n+1} g_j + \sum_{j=1}^{n} h_j \in \mathcal{L}
+    \]
+    So $f$ is indeed measurable.
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 3 Problem 5:} Suppose the function $f$ is defined on a measurable set $E$ and has the property that $\{ x \in E \mid f(x) > c \}$ is measurable for each rational number $c$.
+        Is $f$ necessarily measurable?
+    \end{mybox}
+
+    The rationals are dense in $\R$, hence for any $c \in \R$ and any $n \in \N$, we can find a $q \in \left[c, c + \frac{1}{n}\right]$ such that $q \in \Q$.
+    \[
+        \{ x \in E \mid f(x) > c \} = \bigcup_{n=1}^{\infty} \{ x \in E \mid f(x) > q > c \}
+    \]
+    Where $q \in \left[c, c + \frac{1}{n}\right]$
+
+    Each element of this union is measurable by assumption since $q \in \Q$ and it is a countable union, so $\{ x \in E \mid f(x) > c \}$ is measurable and therefore $f$ is measurable.
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 3 Problem 14:} Let $f$ be a measurable funciton on $E$ that is finite a.e. on $E$ and $m(E) < \infty$.
+        For each $\epsilon > 0$, show that there is a measurable set $F$ contained in $E$ such that $f$ is bounded on $F$ and $m(E \setminus F) < \epsilon$.
+    \end{mybox}
+
+    Let $F = \{ x \in E : \card{f(x)} < \infty \}$.
+    Then
+    \[
+        m(E \setminus F) = m(\{ x \in E \mid f(x) = \pm \infty \}) = 0
+    \]
+    By definition of $f$.
+
+    Clearly $F \subset E$, now we show that $F \in \mathcal{L}$
+    \[
+        F = \bigcup_{n=1}^{\infty} \{ x \in E : \card{f(x)} < n \}
+    \]
+    Which are all measurable due to the measurability of $f$, hence $F$ is a countable union of measurable sets and is itself measurable.
+
+
+
+\end{document}
