@@ -1,0 +1,256 @@
+%! Author = zachprobst
+%! Date = 2021-11-01
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[makeroom]{cancel}
+\usepackage{tcolorbox}
+
+% Setup
+\title{Homework 6}
+\author{Zachary Probst}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}%
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+\newtcolorbox{mybox}{colback=blue!5!white,colframe=blue!75!black}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{prop}{Proposition}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{*corollary}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+
+% Commands
+\newcommand{\siga}{\sigma\text{-algebra}}
+\newcommand{\pwr}[1]{\mathcal{P}(\mathbb{#1})}
+\newcommand{\rinf}{\mathbb{R}_{\geq 0} \cup \{ + \infty \}}
+\newcommand{\mstar}[1]{m^{\star}\left(#1\right)}
+\newcommand{\isum}[1]{\sum_{#1=1}^{\infty}}
+\newcommand{\pr}{^{\prime}}
+\newcommand{\dpr}{^{\prime\prime}}
+\newcommand{\gdelta}{G_{\delta}}
+\newcommand{\fsigma}{F_{\sigma}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Par}{\mathcal{P}}
+\newcommand{\aR}{\mathcal{R}}
+\newcommand{\Qu}{\mathcal{Q}}
+\newcommand{\Lo}{\mathbf{L}}
+\newcommand{\U}{\mathbf{U}}
+
+
+% Document
+\begin{document}
+
+    \maketitle
+
+    \begin{mybox}
+        \textbf{Chapter 3 Problem 31:} Let $\{ f_n \}$ be a sequence of measurable functions on $E$ that converge to the real-valued $f$ pointwise on $E$.
+        Show that $E = \cup_{k=1}^{\infty} E_k$, where for each index $k$, $E_k$ is measurable, and $\{ f_n \}$ converges uniformly to $f$ on each $E_k$ if $k > 1$, and $m(E_1) = 0$.
+    \end{mybox}
+
+    First we prove the case where $m(E) < \infty$.
+    For $k > 1$ let $E_k \subset E$  be such that $E_k$ is closed and $\{ f_n \}$ converges to $f$ uniformly on $E_k$ and $m(E \setminus E_k) < \frac{1}{k}$.
+    Such an $E_k$ exists by Egorov's theorem.
+
+    Each $E_k$ is closed and hence measurable.
+    We also have that $\forall \epsilon > 0$
+    \begin{align*}
+        \lim_{k \rightarrow \infty} \card{ m(E \setminus E_k) } &< \epsilon \\
+        \card{ m(E) - \lim_{k \rightarrow \infty} m(E_k) } &< \epsilon \tag{Excision} \\
+        \implies m(E) = \lim_{k \rightarrow \infty} m(E_k)&
+    \end{align*}
+
+    Define $E_1 \coloneqq E \setminus \cap_{k=2}^{\infty} E_k$.
+    Then
+    \begin{align*}
+        m(E_1) &= m\left(E \setminus \bigcap_{k=2}^{\infty} E_k\right) \\
+        &= m(E) - m \left( \bigcap_{k=2}^{\infty} E_k \right) \tag{Excision} \\
+        &= 0
+    \end{align*}
+
+    So $E_1$ is also measurable and has measure 0.
+    Finally we see that
+    \begin{align*}
+        \bigcup_{k=1}^{\infty} E_k &= \left( E \setminus \bigcap_{k=2}^{\infty} E_k \right) \cup \left( \bigcup_{k=2}^{\infty} E_k \right) \\
+        &= \left( E \cap \left( \bigcap_{k=2}^{\infty} E_k \right)^{c} \right) \cup \left( E \cap  \bigcup_{k=2}^{\infty} E_k \right) \tag{$E_k \subset E$} \\
+        &= E \cap \left( \left( \bigcap_{k=2}^{\infty} E_k \right)^{c}  \cup  \bigcup_{k=2}^{\infty} E_k \right)  \\
+        &= E \cap \left( \bigcup_{k=2}^{\infty} E_k  \cup E_k ^c \right)  \\
+        &= E \cap \R = E
+    \end{align*}
+    And our collection $\{E_k\}$ satisfies all the requirements.
+
+    For the case where $m(E) = \infty$, we can construct a countable number of subsets of $E$ denoted as $E^{i} \coloneqq [-i, i] \cap E$.
+    $m(E^{i}) < \infty$ so we can use our previous result to find a satisfactory collection $\{E_k ^{i}\}$ for each $E^{i}$.
+
+    We then define $F_0 = \cup_{i=1}^{\infty} E_1 ^{i}$ and $F_i = \cap_{k=2}^{\infty} E_k^{i}$ for $i \geq 1$.
+    \begin{align*}
+        \bigcup_{j=0}^{\infty} F_j &= F_0 \cup \bigcap_{i=1}^{\infty} F_i \\
+        &= F_0 \cup \bigcup_{i=1}^{\infty} \left( \bigcap_{k=2}^{\infty} E_k ^i \right) \\
+        &= \bigcup_{i=1}^{\infty} \left( E_1 ^i \right) \cup \bigcup_{i=1}^{\infty} \left( \bigcap_{k=2}^{\infty} E_{k}^i \right) \\
+        &= \bigcup_{i=1} \left( E_1 ^i \cup \bigcap_{k=2}^\infty E_k ^i \right) \\
+        &= \bigcup_{i=1} \left( E ^i \setminus \bigcap_{k=2}^{\infty} E_k ^i \cup \bigcap_{k=2}^\infty E_k ^i \right) \tag{previous result}\\
+        &= \bigcup_{i=1}^{\infty} E^i \\
+        &= E
+    \end{align*}
+    Each $E_1^{i}$ has measure 0 and is measurable hence we also have $m(F_0) = 0$ because of the countable additivity of the measure.
+    Each $F_j$ is a countable intersection of measurable sets, hence it is measurable.
+    Finally $\{f_n\}$ will uniformly converge to $f$ on each $F_j$ because it does so on each $E_k^{j}$.
+
+    In conclusion, $\{F_j\}_{j=0} ^{\infty}$ satisfies the requirements for when $m(E) = \infty$.
+
+    \clearpage
+
+    \begin{mybox}
+        Let $f: [a,b] \rightarrow \R$ be a bounded function.
+        Given any partition $\mathcal{P}$ of $[a,b]$ we let $\mathbf{L}(f,\mathcal{P})$ and $\U (f, \Par)$ denote the lower and upper Darboux sums of $f$ with respect to $\Par$.
+        Show that
+        \begin{gather*}
+            \sup_{\Par} \Lo (f, \Par) = \sup \left\{ \int_{a}^{b} \phi (x)dx \mid \phi \text{ step function with } \phi \leq f \text{ on } [a,b] \right\} \\
+            \inf_{\Par} \U (f, \Par) = \inf \left\{ \int_{a}^{b} \psi (x)dx \mid \psi \text{ step function with } \psi \geq f \text{ on } [a,b] \right\} \\
+        \end{gather*}
+    \end{mybox}
+
+    Given any partition $\Par = \{ x_j \}_{j=0}^{n}$ of $[a,b]$, for $j= 1, \hdots n$ let $E_j = (x_{j-1}, x_j)$, $m_j = \inf_{(x_{j-1}, x_j)} f$ and $ M_j = \sup_{(x_{j-1}, x_j)} f$.
+    For $j = n+1, \hdots, 2n+1$ let $p=j-n-1$ so for $0 \leq p \leq n$ set $E_{j} = [x_p,x_p]$ and $m_j = M_j = f(x_p)$.
+
+    Then $\phi \coloneqq \sum_{j=1}^{2n+1} m_{j} \chi_{E_j}$ and $\psi \coloneqq \sum_{j=1}^{2n+1} M_{j} \chi_{E_j}$ are 2 step functions with $\phi \leq f \leq \psi$ on $[a,b]$, and
+    \begin{align*}
+        \Lo (f,\Par) &= \Lo (\phi, \Par) = \int_{a}^{b} \phi(x) dx \tag{Since $\ell (E_j) = 0$ for $n+1 \leq j \leq 2n + 1$} \\
+        \U (f,\Par) &= \U (\psi, \Par) = \int_{a}^{b} \psi (x) dx \\
+    \end{align*}
+    Hence
+    \[
+        \sup_{\Par} \Lo (f, \Par) \leq \sup \left\{  \int_{a}^{b} \phi (x) dx \mid \phi \text{ step function } \phi \leq f \text{ on } [a,b] \right\} \\
+    \]
+    Because any $\Par$ over [a,b] has a corresponding $\phi$ such that $\Lo (f,\Par) = \int_{a}^{b} \phi (x) dx$.
+    We also have
+    \[
+        \inf \left\{ \int_{a}^{b} \psi (x) dx \mid \psi \text{ step function } \psi \geq f \text{ on } [a,b] \right\} \leq \inf_{\Par} \U (f, \Par)
+    \]
+    Because any $\Par$ over [a,b] has a corresponding $\psi$ such that $\U (f,\Par) = \int_{a}^{b} \psi (x) dx$.
+
+    Now we prove the inequalities in the other direction.
+    Given any $\phi$ with $\phi \leq f$ on $[a,b]$, $\phi$ step function such that $\phi = \sum_{j=1}^{n} \alpha_j \chi_{E_j}$ for some disjoint intervals $\{ E_j \}$ that cover $[a,b]$ and some $\alpha_j \in \R$.
+
+    If $E_j = [x_{j-1}, x_j]$ (can be open or closed) take $E_j ^1 \coloneqq [x_{j-1}, \frac{x_{j-1} + x_j}{2}]$ and $E_j ^2 \coloneqq [\frac{x_{j-1} + x_j}{2}, x_j]$ (each endpoint can be open or closed depending on $E_j$) so we can set $\Qu \coloneqq \{ E_j ^1, E_j ^2 \}$ as a valid partition of $[a,b]$.
+    We denote the minimal value of $f$ on $E_j$ as $m_j$, and on $E_j ^i$ as $m_j ^i$.
+    Clearly $m_j \leq m_j ^i$ for both $i=1,2$.
+    Then
+    \begin{align*}
+        \Lo (f, \Qu) &= \sum_{i=1}^{n} m_i ^1 \ell (E_i ^1) + m_i ^2 \ell (E_i ^2) \\
+        &\geq \sum_{i=1}^{n} m_i (\ell (E_i ^1) + \ell (E_i ^2) ) \\
+        &= \sum_{i=1}^{n} m_i \ell (E_i) \\
+        & \geq \sum_{i=1}^{n} \alpha_i \ell (E_i) \tag{$\phi \leq f$} \\
+        &= \int_{a}^{b} \phi (x) dx
+    \end{align*}
+    Hence
+    \[
+        \sup_{\Qu} \Lo (f, \Qu) \geq \sup \left\{  \int_{a}^{b} \phi (x) dx \mid \phi \text{ step function } \phi \leq f \text{ on } [a,b] \right\} \\
+    \]
+    Because any step function $\phi$ over [a,b] with $\phi \leq f$ has a corresponding $\Qu$ such that $\Lo (f,\Qu) \geq \int_{a}^{b} \phi (x) dx$.
+
+    We can now apply a very similar argument to some step function $\psi \geq f$ over intervals $\{E_j\}$ and find a partition $\Qu$ that is more refined than $\{E_j\}$ such that
+    \[
+        \U (f,\Qu) \leq \int_{a}^{b} \psi(x) dx
+    \]
+    And we are done.
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 4 Problem 1:} Define $f$ on $[0,1]$ by setting $f(x) = 1$ if $x$ is rational and $0$ if $x$ is irrational.
+        Let $\{q_k\}_{k=1}^{\infty}$ be an enumeration of the rational numbers in $[0,1]$.
+        For a natural number $n$, define $f_n$ on $[0,1]$ by setting $f_n (x) = 1$, if $x = q_k$ with $1 \leq k \leq n$, and $f(x) = 0$ otherwise.
+        Show that $\{f_n\}$ fails to converge to $f$ uniformly on $[0,1]$.
+    \end{mybox}
+
+    Assume that $f_n$ convergers to $f$ uniformly on $[0,1]$.
+    Them $\exists N \in \N$ such that $\forall n \geq N$ and $\forall x \in [0,1]$
+    \[
+        \card{f_n (x) - f(x)} < 0.5
+    \]
+    Since the rational numbers are countably infinite, there is some rational number $q_{N+1} \in [0,1]$ that is the $(N+1)$\textsuperscript{th} enumeration of $\{q_{k}\}_{k=1} ^{\infty}$.
+    Since $N+1 > N$, we have $f_N (q_{N+1}) = 0$ while $f(q_{N+1}) = 1$ because $q_{N+1}$ is rational.
+    This implies that
+    \[
+        \card{f_N (q_{N+1}) - f(q_{N+1})} = 1 < 0.5
+    \]
+    Which is a contradiction, hence $f_n$ does not converge to $f$ uniformly on $[0,1]$.
+
+    \clearpage
+
+    \begin{mybox}
+        Let $f: [a,b] \rightarrow \R$ be a bounded function.
+        Given two partitions $\Par, \Qu$ of $[a,b]$, let $\aR = \Par \cup \Qu$ be their union, which is another partition of $[a,b]$.
+        Show that we have
+        \begin{align*}
+            \Lo (f, \Par) &\leq \Lo (f, \aR) \\
+            \U (f, \Qu) &\geq \Lo (f, \aR) \\
+        \end{align*}
+    \end{mybox}
+
+    Assume that $\Qu$ has only one point $y$ that is not in $\Par$ so that
+    \[
+        \Par = \{ x_0, x_1, \hdots, x_n \}, \; \aR = \{ x_0, \hdots, x_{k-1}, y, x_k, \hdots, x_n \}
+    \]
+    Where $x_{k-1} < y < x_k$.
+    Then
+    \begin{align*}
+        \Lo (f, \aR) &= \sum_{i=1}^{k-1} m_i (x_{i} - x_{i-1})  \\
+        &+ \left[ \inf_{x_{k-1} \leq x \leq y} f(x) \right] (y - x_{k-1}) + \left[ \inf_{y \leq x \leq x_k} f(x) \right] (x_k - x_y) \tag{$\star$} \\
+        &+ \sum_{i=k+1}^{n} m_i (x_{i} - x_{i-1})
+    \end{align*}
+    We know that
+    \begin{align*}
+        \inf_{x_{k-1} \leq x \leq y} f(x) \geq \inf_{x_{k-1} \leq x \leq x_k} f(x) = m_k \\
+        \inf_{y \leq x \leq x_k} f(x) \geq \inf_{x_{k-1} \leq x \leq x_k} f(x) = m_k \\
+    \end{align*}
+    So
+    \begin{align*}
+    (\star)
+        \geq m_k (y - x_{k-1} + x_k - y) =  m_k (x_k - x_{k-1})
+    \end{align*}
+    And it follows that
+    \[
+        \Lo (f, \Par) \leq \Lo (f, \aR)
+    \]
+    Suppose now that $\Qu$ has finitely many points $y_1, \hdots, y_m$ which are not in $\Par$, and set
+    \[
+        \aR_1 = \Par \cup \{ y_1 \}, \aR_2 = \aR_1 \cup \{ y_2 \}, \hdots , \aR_m = \aR_{m-1} \cup \{ y_m \}
+    \]
+    Notice that $\aR_m = \aR$ and by the result we have already established,
+    \[
+        \Lo (f, \aR) \geq \Lo (f, \aR_{m-1}) \geq \Lo (f, \aR_{m-2}) \hdots \geq \Lo (f, \aR_1) \geq \Lo (f, \Par)
+    \]
+
+    To show the second inequality we use our previous result to prove that
+    \[
+        \U (f, \aR) = \Lo (-f, \aR) \leq \Lo(-f, \Qu) = \U (f, \Qu)
+    \]
+    Where we have used the fact that
+    \[
+        \inf_{z \leq x \leq y} -f(x) = \sup_{z \leq x \leq y} f(x)
+    \]
+    And
+    \[
+        \Lo (-f, \aR) \leq \Lo(-f, \Qu) \iff \Lo (f, \aR) \geq \Lo(f, \Qu)
+    \]
+    Finally we use the fact shown in class that for any partition $\aR$ of $[a,b]$ $\U (f, \aR) \geq \Lo (f, \aR)$
+    \[
+        \Lo (f, \aR) \leq \U(f, \aR) \leq \U (f, \Qu)
+    \]
+
+
+\end{document}
