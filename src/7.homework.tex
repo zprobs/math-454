@@ -1,0 +1,156 @@
+%! Author = zachprobst
+%! Date = 2021-11-08
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[makeroom]{cancel}
+\usepackage{tcolorbox}
+
+% Setup
+\title{Homework 7}
+\author{Zachary Probst}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}%
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+\newtcolorbox{mybox}{colback=blue!5!white,colframe=blue!75!black}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{prop}{Proposition}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{*corollary}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+
+% Commands
+\newcommand{\siga}{\sigma\text{-algebra}}
+\newcommand{\pwr}[1]{\mathcal{P}(\mathbb{#1})}
+\newcommand{\rinf}{\mathbb{R}_{\geq 0} \cup \{ + \infty \}}
+\newcommand{\mstar}[1]{m^{\star}\left(#1\right)}
+\newcommand{\isum}[1]{\sum_{#1=1}^{\infty}}
+\newcommand{\pr}{^{\prime}}
+\newcommand{\dpr}{^{\prime\prime}}
+\newcommand{\gdelta}{G_{\delta}}
+\newcommand{\fsigma}{F_{\sigma}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+% Document
+\begin{document}
+
+    \maketitle
+
+    \begin{mybox}
+        \textbf{Problem 1:} Let $E \subset \R$ be a nonmeasurable set.
+        Prove that there is $\epsilon > 0$ such that if $\{ E_j \}_{j=1}^{n}$ are measureable sets with $E \subset \bigcup_{j=1}^{n} E_j$ then $\sum_{j=1}^{n} m(E_j) \geq \epsilon$.
+    \end{mybox}
+
+    Assume by way of contradiction that we had
+    \[
+        \sum_{j=1}^{n} m(E_j) = 0
+    \]
+    Then since each $E_j$ is measurable, we can apply countable additivity of the measure to see that
+    \[
+        m\left( \bigcup_{j=1}^{n} E_j \right) =  \sum_{j=1}^{n} m(E_j) = 0
+    \]
+    Now we know that $E \subset \bigcup_{j=1}^{n} E_j$ so by monotonicity, we must have that $m(E) = 0$.
+    But this proves that $E$ is measurable since any set of zero measure is indeed measurable.
+    This is a contradiction hence there must be some $\epsilon > 0$ such that $\sum_{j=1}^{n} m(E_j) \geq \epsilon$.
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Problem 2:} For the next problems let $V \subset [0,1]$ be a Vitali set for $[0,1]$, i.e a choice set for the equivalence relation $\sim$ on $[0,1]$ where $x \sim y \iff x - y \in \Q$.
+        Consider the characteristic function $\chi_V: [0,1] \rightarrow \R$ of this Vitali set.
+        Show that the lower Lebesgue integral of $\chi_V$ satisfies $\mathcal{L} (\chi_V) = 0 $.
+    \end{mybox}
+
+    Consider a simple function $\phi = \sum_{j=1}^{n} a_j \chi_{E_j}$ on $[0,1]$ with $\phi \leq \chi_{V}$.
+    Such a $\phi$ exists because we can take the zero function on $[0,1]$.
+
+    Split the index set $\{ 1, \hdots, n \}$ into three disjoint parts
+    \begin{enumerate}
+        \item \underline{$E_j \subset V$}
+
+        In this case $m(E_j) = 0$ since $E_j$ is measurable and $E_j \subset V$.
+        This means that $\int_{E_j} \phi = 0$.
+        \item \underline{$E_j \subset [0,1] \setminus V$}.
+
+        In this case $\chi_V = 0$ on $E_j$ since $E_j \subset V^c$ and hence we must take $a_j \leq 0$ to still maintain $\phi \leq \chi_V$.
+        This means $\phi \mid_{E_j} \leq 0 \implies \int_{E_j} \phi \leq 0$.
+        \item \underline{$E_j$ has elements in both $V$ and $V^c$}
+
+        Then the minimum value that $\chi_V$ takes on $E_j$ is 0, and hence we must have $a_j \leq 0 \implies \phi \mid_{E_j} \leq 0 \implies \int_{E_j} \phi \leq 0$.
+    \end{enumerate}
+
+    Now for each of the three cases, $\int_{E_j} \phi \leq 0$ and so since $[0,1] = \cup_{j=1}^{n} E_j$
+    \[
+        \int_{0}^{1} \phi \leq 0
+    \]
+    But we know that the zero function is a possible choice for $\phi$ so
+    \[
+         0 \leq \sup \left\{  \int_{0}^{1}  \phi \mid \phi: [0,1] \rightarrow \R \text{ simple with } \phi \leq f \right\} =  \mathcal{L}(f) \leq 0
+    \]
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Problem 3:} Show that the upper Lebesgue integral of $\chi_V$ satisfies $\mathcal{U}(\chi_V) \geq \epsilon$, where $\epsilon > 0$ is the number given by problem 1 for the nonmeasurable set $V$.
+        Combining this with problem 2, we see that $\chi_V$ is not Lebesgue integrable on $[0,1]$.
+    \end{mybox}
+
+    Consider $\psi = \sum_{j=1}^{n} a_j \chi_{E_j}$ on $[0,1]$ with $\psi \geq \chi_{V}$, and split it into 3 disjoint cases like we did in the previous question.
+    \begin{enumerate}
+        \item \underline{$E_j \subset V$}
+
+        In this case $m(E_j) = 0$ since $E_j$ is measurable and $E_j \subset V$.
+        This means that $\int_{E_j} \psi = 0$.
+        \item \underline{$E_j \subset [0,1] \setminus V$}.
+
+        In this case $\chi_V = 0$ on $E_j$ since $E_j \subset V^c$ and hence we must take $a_j \geq 0$ to still maintain $\psi \geq \chi_V$.
+        This means $\psi \mid_{E_j} \geq 0 \implies \int_{E_j} \psi \geq 0$.
+        \item \underline{$E_j$ has elements in both $V$ and $V^c$}
+
+        Then the maximum value that $\chi_V$ takes on $E_j$ is 1, and hence we must have $a_j \geq 1$.
+    \end{enumerate}
+
+    If we combine all the cases of $E_j$ from (1) and (3), and relabel them from $1,\hdots,m$ then $\cup_{j=1}^{m} E_j$ is a finite cover of $V$.
+    We can now apply the result from the first problem in this homework to see that there is $\epsilon > 0$ such that
+    \[
+        \sum_{j=1}^{m} m(E_j) \geq \epsilon
+    \]
+    We also know that all the $E_j^{(1)}$ from case (1) have $m(E_j^{(1)}) = 0$.
+    Now since each $E_j$ is measurable, we have that for each of the $E^{(1)}_j$ from case (1)
+    \[
+        0 = m\left( \bigcup_{j=1}^{m_1} E^{(1)}_j \right) = \sum_{j=1}^{m_1} m(E^{(1)}_j)
+    \]
+    Where $m_1 \leq m$ is the number of $E^{(1)}_j$ from case (1) and we have once again relabeled for convenience.
+    But the sum of all $E_j$ from cases (1) and (2) had positive measure, therefore the sum of all $m_2$ of the $E^{(2)}_j$ from case (2) must satisfy
+    \[
+        \sum_{j=1}^{m_2} m(E^{(2)}_j) \geq \epsilon
+    \]
+    We saw that for each $E_j^{(2)}$, we had $a_j \geq 1$.
+    Now if we set $E \dpr \coloneqq \cup_{j=1}^{m_2} E_j^{(2)}$ and $E\pr \coloneqq [0,1] \setminus E \dpr$ we can conclude by taking
+    \[
+        \int_{0}^{1} \psi = \int_{E\pr} \psi + \int_{E\dpr} \psi \geq \epsilon
+    \]
+    And since $\epsilon$ is a lower bound over the set of all simple functions $\psi \geq f$,
+    \[
+        \mathcal{U}(\chi_V) \geq \epsilon
+    \]
+    From this exercise we see that $\chi_V$ is not Lebesgue integrable on $[0,1]$
+
+
+
+
+\end{document}
