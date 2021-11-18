@@ -150,7 +150,8 @@
     \[
         \int_{E} \phi_N \leq \inf \left\{  \int_{E} f_n : n \geq N \right\}
     \]
-    $\phi_N$ converges pointwise to $\liminf f_n$ and $0 \leq \phi_N \leq \liminf f_n$ so $\card{\phi_N} \leq \liminf f_n$ and we can apply the Lebesgue Dominated Convergence Theorem.
+    $\phi_N$ converges pointwise to $\liminf f_n$ by the definition of $\liminf$ and $\phi_N$ is non-negative because $f_n$ is non-negative.
+    We also know that $\phi_N$ is increasing because a sequence of $\inf$ over smaller and smaller sets is weakly increasing hence we can apply the Monotone Convergence Theorem.
     \[
         \int_{E} \liminf f_n = \lim_{N \rightarrow \infty} \int_{E} \phi_N  \leq \lim_{N \rightarrow \infty} \inf \left\{  \int_{E} f_n : n \geq N \right\} \right\}  = \liminf \int_{E} f_n
     \]
