@@ -1,0 +1,158 @@
+%! Author = zachprobst
+%! Date = 2021-11-15
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[makeroom]{cancel}
+\usepackage{tcolorbox}
+
+% Setup
+\title{Homework 8}
+\author{Zachary Probst}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}%
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+\newtcolorbox{mybox}{colback=blue!5!white,colframe=blue!75!black}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{prop}{Proposition}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{*corollary}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+
+% Commands
+\newcommand{\siga}{\sigma\text{-algebra}}
+\newcommand{\pwr}[1]{\mathcal{P}(\mathbb{#1})}
+\newcommand{\rinf}{\mathbb{R}_{\geq 0} \cup \{ + \infty \}}
+\newcommand{\mstar}[1]{m^{\star}\left(#1\right)}
+\newcommand{\isum}[1]{\sum_{#1=1}^{\infty}}
+\newcommand{\pr}{^{\prime}}
+\newcommand{\dpr}{^{\prime\prime}}
+\newcommand{\gdelta}{G_{\delta}}
+\newcommand{\fsigma}{F_{\sigma}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+% Document
+\begin{document}
+
+    \maketitle
+
+    \begin{mybox}
+        \textbf{Problem 1:} Let $E$ be measurable with $m(E) < \infty$ and $f: E \rightarrow \R$ a bounded measurable function.
+        Show that we have
+        \[
+            \card[\Big]{\int_{E} f } = \int_{E} \card{f}
+        \]
+        if and only if $f \geq 0$ a.e on $E$ or $f \leq 0$ a.e on $E$.
+    \end{mybox}
+
+    Assume that $f \geq 0$ a.e on $E$.
+    Let $E\pr \coloneqq \{ x \in E : f(x) < 0 \}$.
+    Let $c \coloneqq \inf \{ f(x) : x \in E\pr \}$
+    Define a function $z: E \rightarrow \{c,0\}$ as
+    \[
+        z(x) \coloneqq \begin{cases}
+                   c & x \in E\pr \\
+                   0 & x \notin E\pr
+        \end{cases}
+    \]
+    Since $f \geq 0$ a.e on $E$, we know $m(E\pr) = 0$ so
+    \[
+        \int_{E} z = \int_{E \setminus E\pr} 0 + \int_{E\pr} c = 0
+    \]
+    So $z \leq f$ is a simple function and a contender for the supremum in $\mathcal{L}(f)$
+    \[
+        0 = \int_{E} z \leq \mathcal{L}(f) = \int_{E} f
+    \]
+    Now we know that $\int_{E} f \geq 0$ so
+    \[
+        \card[\Big]{\int_{E} f } = \int_{E} f = \int_{E \setminus E\pr} f + \int_{E\pr} f = \int_{E \setminus E\pr} f = \int_{E \setminus E\pr} \card{f} =  \int_{E} \card{f}
+    \]
+
+    Now assume that $f \leq 0$ a.e on $E$.
+    Then $-f \geq 0$ a.e on $E$ and we have already proved that
+    \[
+        \card[\Big]{\int_{E} -f} = \int_{E} \card{-f} = \int_{E} \card{f}
+    \]
+    But the lebesgue integral satisfies linearity so
+    \[
+        \card[\Big]{\int_{E} -f} = \card[\Big]{- \int_{E} f } = \card[\Big]{\int_{E} f}
+    \]
+    And putting that together we get
+    \[
+        \card[\Big]{\int_{E} f} = \int_{E} \card{f}
+    \]
+
+    Now assume that $\card[\Big]{\int_{E} f} = \int_{E} \card{f}$.
+    Let $E\pr \coloneqq \{ x \in E : f(x) > 0 \}$ and $E\dpr \coloneqq \{ x \in E : f(x) < 0 \}$.
+    By way of contradiction, let us assume that $m(E\pr) > 0$ and $m(E \dpr) > 0$.
+    $f = 0$ on $E \setminus E\pr \cup E\dpr$ so we can decompose the integral of $f$ like so:
+    \[
+        \card[\Big]{\int_{E} f} = \int_{E} \card{f} = \int_{E\pr} \card{f} + \int_{E\dpr} \card{f} = \card[\Big]{\int_{E\pr} f} + \card[\Big]{\int_{E\dpr} f}
+    \]
+    But
+    \[
+        \card[\Big]{\int_{E} f} = \card[\Big]{\int_{E\pr} f + \int_{E\dpr} f} = \card[\Big]{\int_{E\pr} f} + \card[\Big]{\int_{E\dpr} f}
+    \]
+    Which is only possible if both $\int_{E\pr} f \geq 0$ and $\int_{E\dpr} f \geq 0$ or if one term were equal to 0.
+    But $\int_{E\dpr} f < 0 $ and $\int_{E\pr} f > 0 $ so we have a contradiction.
+
+    So it must be the case that either $m(E\pr) = 0$ or $m(E\dpr) = 0$.
+    This means that either $f \leq 0$ a.e on $E$ or $f \geq 0$ a.e on $E$.
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 4 Problem 26:} Show that the Monotone Convergence Theorem may not hold for decreasing sequences of functions.
+    \end{mybox}
+
+    Let $E \coloneqq [0,\infty)$.
+    Define $f_n: E \rightarrow \R$ as $f_n (x) = \frac{1}{n}$.
+    Clearly $f_n$ is a decreasing sequence of functions that converges pointwise to the zero function, since $\lim_{n \rightarrow \infty} \frac{1}{n} = 0$.
+    However, we can write each $f_n$ as a simple function whose integral is
+    \[
+        \int_{E} f_n = \int_{[0,1)} f_n + \int _{[1,2)} f_n + \hdots = \sum_{i=1}^{\infty} \frac{1}{n} \geq \sum_{i=1}^{n} \frac{1}{n} = 1
+    \]
+    Letting $n \rightarrow \infty$ we get
+    \[
+        \lim_{n \rightarrow \infty} \int_{E} f_n \geq 1
+    \]
+    But $\int_{E} 0 = 0$, therefore the Monotone Convergence Theorem may not hold for decreasing sequences of functions.
+
+    \clearpage
+
+    \begin{mybox}
+        \textbf{Chapter 4 Problem 27} Prove the following estimation of Fatou's Lemma: If $\{ f_n \}$ is a sequence of non-negative measurable functions on $E$, then
+        \[
+            \int_{E} \liminf f_n \leq \liminf \int_{E} f_n
+        \]
+    \end{mybox}
+
+    Let $N \in \N$, define $c \coloneqq \inf\{ f_n : n \geq N \}$ then $c \leq f_n$ on $E$ $\forall n \geq N$.
+    Let $\phi_N: E \rightarrow \{ c \}$ be a simple function on $E$ with $\phi_N \leq f_n \; \forall n \geq N$ so
+    \[
+        \int_{E} \phi_N \leq \int_{E} f_n
+    \]
+    $\int_{E} \phi_N$ is a lower bound for $\{ \int_{E} f_n : n \geq N \}$ hence
+    \[
+        \int_{E} \phi_N \leq \inf \left\{  \int_{E} f_n : n \geq N \right\}
+    \]
+    $\phi_N$ converges pointwise to $\liminf f_n$ and $0 \leq \phi_N \leq \liminf f_n$ so $\card{\phi_N} \leq \liminf f_n$ and we can apply the Lebesgue Dominated Convergence Theorem.
+    \[
+        \int_{E} \liminf f_n = \lim_{N \rightarrow \infty} \int_{E} \phi_N  \leq \lim_{N \rightarrow \infty} \inf \left\{  \int_{E} f_n : n \geq N \right\} \right\}  = \liminf \int_{E} f_n
+    \]
+
+\end{document}
