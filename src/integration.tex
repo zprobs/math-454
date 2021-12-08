@@ -1,0 +1,228 @@
+\begin{definition}[Step Functions]
+    Step functions are a special class of simple functions. $\phi: [a,b] \rightarrow \R$ is a step function if there exist finitely many disjoint intervals $\{ E_j\}_{j=1}^{n}$, $E_j \subset [a,b] \forall j$, $\cup_{j=1}^{n} E_j = [a,b]$, and $\exists c_j \in \R$, such that $\phi = \sum_{j=1}^{n} c_j \chi_{E_j}$.
+\end{definition}
+
+Observe that if $\phi$ is a step function then $\{E_j\}_{j=1}^{n}$ give us a partition $\mathcal{P}$ of $[a,b]$ and
+\[
+    \mathbf{L} (\phi, \mathcal{P}) = \sum_{j=1}^{n} c_j \ell (E_j) = \mathbf{U}(\phi, \mathcal{P})
+\]
+Where $\mathbf{L}$ and $\mathbf{U}$ are the lower Darboux sums defined in Riemann integration.
+So for any partition $\mathcal{Q}$ of [a,b]
+\[
+    \sup_{Q} \mathbf{L} (\phi, \mathcal{Q}) \geq \mathbf{L} (\phi, \mathcal{P}) =  \mathbf{U}(\phi, \mathcal{P}) \geq \inf_{\mathcal{Q}}\mathbf{U}(\phi, \mathcal{Q}) \geq \sup_{Q} \mathbf{L} (\phi, \mathcal{Q})
+\]
+Hence they are equal, and $\phi$ is Riemann integrable and
+\[
+    \int_{a}^{b} \phi(x) dx =  \sum_{j=1}^{n} c_j \ell (E_j)
+\]
+One can prove that if $f$ is Riemann integrable on $[a,b]$, then
+\begin{gather*}
+    \sup \left\{ \int_{a}^{b} \phi (x) dx \mid \phi \text{ step function and } \phi \leq f \text{ on } [a,b] \right\} \\
+    = \inf \left\{ \int_{a}^{b} \psi (x) dx \mid \psi \text{ step function and } \psi \geq f \text{ on } [a,b] \right\}
+\end{gather*}
+
+To define the \emph{Lebesgue Integral} we will proceed in steps.
+
+\underline{Step 1:}
+
+Suppose $\phi$ is a simple function, so $E \in \Le$, $\phi: E\rightarrow \R$ has the form $\phi = \sum_{j=1}^{n} a_j \chi_{E_j}$ where $a_j \in \R$ is distinct and $E_j \subset E$, $\cup_{j=1}^{n} E_j = E$ is a disjoint union.
+
+Suppose $m(E) < \infty$, then we define the Legesbue integral as
+\[
+    \boxed{\int_{E} \phi = \int_E \phi (x) dx = \sum_{j=1}^{n} a_j m(E_j)}
+\]
+
+\begin{prop}
+    $E \in \Le$ with $m(E) < \infty$, $\phi, \psi: E \rightarrow \R$ are simple functions then $\forall \alpha, \beta \in \R$,
+    \[
+        \int_{E} \alpha \phi + \beta \psi = \alpha \int_{E} \phi + \beta \intE \psi \tag{Linearity}
+    \]
+    Also, if $\phi \leq \psi$ on $E$, then
+    \[
+        \intE \phi \leq \intE \psi \tag{Monotonicity}
+    \]
+\end{prop}
+
+\underline{Step 2:}
+
+$E \in \Le$, $m(E) < \infty$, $f: E \rightarrow \R$ bounded.
+We say that $f$ is Lebesgue integrable if $\mathbf{L} (f) = \mathbf{U}(f)$ where
+\begin{align*}
+    \mathbf{L}(f) &= \sup \left\{ \int_{a}^{b} \phi (x) dx \mid \phi \text{ step function and } \phi \leq f \text{ on } [a,b] \right\} \\
+    \mathbf{U} (f) &= \inf \left\{ \int_{a}^{b} \psi (x) dx \mid \psi \text{ step function and } \psi \geq f \text{ on } [a,b] \right\}
+\end{align*}
+
+\begin{theorem}
+    $a,b \in \R$, $a < b$, $f: [a,b] \rightarrow \R$ a bounded function.
+    Suppose $f$ is Riemann integrable, then $f$ is Lebesgue integrable on $[a,b]$ and the two integrals are equal.
+\end{theorem}
+
+\begin{theorem}
+    $E \in \Le$ with $m(E) < \infty$, $f: E \rightarrow \R$ measurable and bounded, then $f$ is Lebesgue integrable over $E$.
+\end{theorem}
+
+\begin{theorem}
+    $E \in \Le, m(E) < \infty$, $f,g: E \rightarrow \R$ bounded measurable functions.
+    $\forall \alpha, \beta \in \R$,
+    \[
+        \intE (\alpha f + \beta g) = \alpha \intE f + \beta \intE g
+    \]
+    Also, if $f \leq g$ on $E$ then $\int_{E} f \leq \int_{E} g$
+\end{theorem}
+
+\begin{corollary}[Chopping]
+    $E \in \Le$, $m(E) < \infty$, $f: E \rightarrow \R$ bounded and measurable.
+    If $A, B \subset E$, $A, B \in \Le$, $A \cap B = \emptyset$, then
+    \[
+        \boxed{ \int_{A \cup B} f = \int_{A}f + \int_{B} f}
+    \]
+\end{corollary}
+
+\begin{prop}[Extremely Useful Inequality]
+    $E \in \Le$, $m(E) < \infty$, $f: E \rightarrow \R$ bounded and measurable, then
+    \[
+        \boxed{ \left\lvert \intE f \right\rvert \leq \intE \card{f}}
+    \]
+\end{prop}
+
+\begin{prop}
+    $E \in \Le$, $m(E) < \infty$, $f_n: E \rightarrow \R$ bounded measurable.
+    If $f_n \rightarrow f$ \underline{uniformly} on $E$, then
+    \[
+        \lim_{n \rightarrow \infty} \intE f_n = \intE f
+    \]
+\end{prop}
+
+\begin{theorem}[Bounded Convergence Theorem]
+    $E \in \Le$, $m(E) < \infty$, $f_n: E \rightarrow \R$ bounded, $f_n \rightarrow f$ pointwise on $E$.
+    Suppose that $\exists M > 0$ such that $\card{f_n} \leq M$ on $E$, $\forall n$.
+    Then
+    \[
+        \lim_{n \rightarrow \infty} \intE f_n = \intE f
+    \]
+\end{theorem}
+
+\underline{Step 3:}
+
+\begin{definition}[Finite Support]
+    $E \in \Le$, not necessarily with $m(E) < \infty$.
+    $f: E \rightarrow [-\infty, \infty]$ measurable.
+    We say that $f$ has \emph{finite support} if its support $\text{Supp}(f) = \{ x \in E: f(x) \neq 0 \} \in \Le$ satisfies $m(\text{Supp}(f)) < \infinity$.
+    In other words, $f$ is zero outside a measurable subset with finite measure.
+    In this case, if $f: E \rightarrow \R$ bounded and measurable, $m(E)$ may be infinite, and if $f$ has finite support, we define
+    \[
+        \intE f \coloneqq \int_{\text{Supp}(f)} f
+    \]
+\end{definition}
+
+Now, for $E \in \Le$ and $f: E \rightarrow [0, \infty]$ measurable non-negative function, define
+\[
+    \intE f = \sup \left\{ \intE h \mid h: E \rightarrow \R \text{ bounded, measurable of finite support with } 0 \leq h \leq f \text{ on } E \right\}
+\]
+
+\begin{theorem}[Chebyshev's Inequality]
+    $E \in \Le$, $f: E \rightarrow [0,\infty]$ measurable.
+    Then $\forall \lambda > 0$.
+    \[
+        \boxed{m \{ f \geq \lambda \} \leq \frac{1}{\lambda} \intE f}
+    \]
+
+\end{theorem}
+
+\begin{corollary}
+    $E \in \Le$, $f: E \rightarrow [0, \infty]$ measurable, then
+    \[
+        \intE f = 0 \iff f = 0 \text{ a.e} \text{ on } E
+    \]
+\end{corollary}
+
+Linearity and Monotonicity also apply to step 3 of the definition.
+
+\begin{prop}[Fatou's Lemma]
+    $E \in \Le$, $f_n: E \rightarrow [0, \infty]$ measurable, suppose $f_n \rightarrow f$ pointwise a.e on $E$.
+    Then
+    \[
+        \intE f \leq \liminf_{n \rightarrow \infty} \intE f_n
+    \]
+\end{prop}
+
+\begin{theorem}[Monotone Convergence Theorem]
+    $E \in \Le$, $f_n: E \rightarrow [0. \infty]$ measurable with $\{ f_n \}$ increasing (i.e $f_n \leq f_{n+1} \text{ on } E \; \forall n \geq 1$ ).
+    Assume $f_n \rightarrow f$ pointwise a.e on $E$.
+    Then
+    \[
+        \boxed{ \intE f = \lim_{n \rightarrow \infty} \intE f_n}
+    \]
+\end{theorem}
+
+\begin{definition}
+    $E \in \Le$, $f: E \rightarrow [0, \infty]$ measurable.
+    We say that $f$ is \underline{integrable} over $E$ if $\intE f < \infty$.
+\end{definition}
+
+\begin{prop}
+    $f$ integrable $\implies f $ finite a.e on $E$.
+\end{prop}
+
+\begin{prop}[Beppolevi's Lemma]
+    $E \in \Le$, $f_n: E \rightarrow [0,\infty]$ measurable with $f_n \leq f_{n+1}$ $\forall n$.
+    Suppose $\exists C > 0$ such that $\intE f_n \leq C $ $\forall n$.
+    Then $f_n \rightarrow f$ pointwise on $E$, $f: E \rightarrow [0, \infty]$ measurable and finite a.e on $E$, and $\lim_{n \rightarrow \infty} \intE f_n = \intE f < \infty$.
+\end{prop}
+
+\underline{Step 4}:
+
+Now for general functions.
+$E \in \Le, f: E \rightarrow [-\infty, \infty]$, measurable.
+Then $f^{+}, f^{-}: E \rightarrow [0,\infty]$ are measureable and
+\[
+    \begin{cases}
+        f &= f^{+} - f^{-} \\
+        \card{f} &= f^{+} + f^{-}
+    \end{cases}
+\]
+on $E$.
+
+\begin{lemma}
+    $\card{f}$ integrable on $E \iff f^{+} \text{ and } f^{-}$ integrable on $E$
+\end{lemma}
+
+\begin{definition}
+    $E \in \Le, f: E \rightarrow [-\infty, \infty]$ measureable.
+    We say that $f$ is integrable if $\card{f}$ integrable.
+    Then let
+    \[
+        \intE f = \intE f^{+} - \intE f^{-} \in \R
+    \]
+\end{definition}
+This clearly agrees with the earlier definition if $f \leq 0$, since then $f^{-} = 0$.
+
+\begin{prop}
+    $f$ integrable on $E \implies f $ finite a.e on $E$, and $\forall E_0 $ null set in $E$,
+    \[
+        \intE f = \int_{E \setminus E_0} f
+    \]
+\end{prop}
+
+\begin{prop}
+    $E \in \Le$, $f: E \rightarrow [-\infty, \infty]$ measurable.
+    Suppose $g: E \rightarrow [0,\infty]$ measurable such that $g$ integrable on $E$ and $\card{f} \leq g$ on $E$.
+    Then $f$ also integrable, and
+    \[
+        \lvert \intE f \rvert \leq \intE \card{f}
+    \]
+\end{prop}
+
+Now if $f,g$ are integrable over $E$, $f+g$ can only be defined at points where $f$ and $g$ are finite.
+But we know that $E_0 = \{ f = \pm \infty \} \cup \{ g = \pm \infty \}$ is a null set, so on $E \setminus E_0$ we define $f+g$, we will show that $f+g$ is integrable on $E\setminus E_0$, and then define $\intE (f+g) \coloneqq \int_{E \setminus E_0} (f+g)$.
+
+Linearity, monotonicity, and chopping also hold true for this definition of the Lebesgue integral.
+
+\begin{theorem}[Dominated Convergence]
+    $E \in \Le$, $f_n: E \rightarrow [-\infty, \infty]$ measurable.
+    Suppose $f_n \rightarrow f$ pointwise a.e on $E$ and $\card{f_n} \leq g$ on $E$ $\forall n$ for some $g$ integrable on $E$.
+    Then $f$ integrable and
+    \[
+        \intE f = \lim_{n \rightarrow \infty} \intE f_n
+    \]
+\end{theorem}

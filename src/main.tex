@@ -13,6 +13,7 @@
 \usepackage{tcolorbox}
 \usepackage{centernot}
 \usepackage{amssymb}
+\usepackage{stmaryrd}
 
 % Setup
 \title{Honours Analysis 3}
@@ -44,6 +45,7 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Le}{\mathcal{L}}
+\newcommand{\intE}{\int_{E}}
 
 % Document
 \begin{document}
@@ -78,205 +80,19 @@
     \section{Non-Measurable Sets}\label{sec:non-measurable-sets}
     \input{non-measurable-sets}
 
+
     \section{Cantor Set}\label{sec:cantor-set}
     \input{cantor-set}
-    
+
+
     \section{Measurable Functions}\label{sec:measurable-functions}
-
-    We shall now study functions $f : E \rightarrow [-\infty, \infty] \coloneqq \mathbb{R} \cup \{ \pm \infty \}$ where $E \subset \mathbb{R}$ is a \emph{measurable} set.
-
-    Sublevel sets of $f$ are the sets of the form $f^{-1}([-\infty, c)) = \{ x \in E \mid f(x) < c \}$, for some $c \in \mathbb{R}$
-
-    \begin{definition}
-        If we have $f : E \rightarrow [-\infty, \infty]$ with $E$ measurable, then we say that $f$ is measurable if all sublevel sets $f^{-1}([-\infty, c))$ are in $\mathcal{L}$ for all $x \in \mathbb{R}$.
-    \end{definition}
-
-    \begin{prop}
-        $f : E \rightarrow [-\infty, \infty]$, then the following are equivalent:
-        \begin{enumerate}
-            \item $f$ measurable
-            \item $\forall c \in \mathbb{R}$, $f^{-1}([-\infty, c]) = \{x \in E \mid f(x) \leq c \} \in \mathcal{L}$
-            \item $\forall c \in \mathbb{R}$, $f^{-1}((c, \infty]) = \{x \in E \mid f(x) > c \} \in \mathcal{L}$
-            \item $\forall c \in \mathbb{R}$, $f^{-1}([c, \infty])  \in \mathcal{L}$
-            \item $\forall U \subset \mathbb{R}$ open, $f^{-1}(U) \in \Le$
-            \item $\forall A \subset \mathbb{R}$ Borel set, $f^{-1}(A) \in \Le$
-        \end{enumerate}
-    \end{prop}
-
-    \underline{Ex:} If $E$ measurable, $f: E \rightarrow \R$ continuous, then $f$ is measurable.
-    Indeed, $\forall U \subset \R$ open, $f^{-1}(U)$ is open in $E$, i.e $f^{-1}(U) = V \cap E$ where $V \subset \R$ open.
-    Clearly $V \cap E \in \Le$, so $f$ is measurable.
-
-    \underline{Caution}: $f: E \rightarrow \R$ continuous and $A \subset \R$ measurable $\centernot\implies f^{-1}(A) \in \Le$.
-    For example: $E = [0,1], f = \psi^{-1}$ then we proved earlier that $\psi$ maps a measurable subset onto a non-measurable subset.
-
-    \begin{prop}
-        $f: [a,b] \rightarrow \R$ monotone $\implies f$ measurable
-    \end{prop}
-
-    \begin{proof}
-        without loss of generality, we may assume $f$ is monotone increasing $f(x) \leq f(y)$ whenever $x \leq y$.
-        For any $c \in \R$, look at $\{ f < c \}$ and assume it is non-empty.
-        We show that $\{ f < c \}$ is an interval $\subset [a,b]$.
-        Now, intervals $I \in \R$ are characterized by the property that if $x \leq y \in I$ then the whole segment $tx + (1-t)y$ is in $I$, for $0 \leq t \leq 1$.
-        So let $f(x) < c$, $f(y) < c$, then $tx + (1-t)y \leq y$ so $f(tx + (1-t)y) \leq f(y) < c$ too.
-
-        So $\{ f < c\}$ is an interval which means that $f$ is measurable.
-    \end{proof}
-
-    \begin{prop}
-        given $E \subset \R$ measurable, $f: E \rightarrow [-\infty, \infty]$ measurable
-        \begin{enumerate}
-            \item If $g: E \rightarrow [-\infty, \infty]$ is another function and $f=g$ a.e on $E$.
-            Then $g$ is measurable
-            \item Suppose $D \subset E$, $D$ measurable.
-            Then $f$ is measurable (as a function on $E$) $\iff$ $f\mid_{D}$ measurable (as a function on $D$) and $f \mid_{E \setminus D}$ is measurable (as a function on $E \setminus D$).
-        \end{enumerate}
-    \end{prop}
-
-    \begin{proof}
-    (1): Let $A = \{ x \in E \mid f(x) \ne g(x) \}$, which by assumption has $m(A) = 0$.
-        Then $\forall c \in \R$,
-        \begin{align*}
-            \{ x \in E \mid g(x) > c \} &= \{ x \in A \mid g(x) > c \} \cup \{ x \in E \setminus A \mid f(x) > c \} \\
-            &= \{ x \in A \mid g(x) > c \} \cup \underbrace{\{ x \in E\mid f(x) > c \}}_{\in \Le} \cap \underbrace{\{ E \setminus A \}}_{\in \Le}
-        \end{align*}
-        $\{ x \in A \mid g(x) > c \}$ is a subset of $A$ hence it has measure 0 and is also measurable so $\{ g > c \} \in \Le$.
-
-    (2): \begin{align*}
-             \{ x \in E \mid f(x) > c \} &= \{ x \in D \mid f(x) > c \} \cup \{ x \in E \setminus D \mid f(x) > c \} \\
-             &= ( \{ x \in E \mid f(x) > c \} \cap D) \cup (\{ x \in E \mid f(x) > c \} \cap (E \setminus D))
-    \end{align*}
-    \end{proof}
-
-    \underline{Sums and Products}: If $f,g : E \rightarrow [-\infty, \infty]$ can we consider their sum $f+g$?
-    Well, if $f(x) = \infty$ and $g(x) = -\infty$ then $f(x) + g(x)$ is definitely undefined.
-    Let us then assume that $f$ and $g$ are finite for a.e point in $E$.
-    Thus, $\exists E_0 \subset E$ with $m(E_0) = 0$, such that $f$ and $g$ are finite on $E \setminus E_0$.
-    We will now show that $f+g: E \setminus E_0 \rightarrow \R$ is measurable (on $E\setminus E_0$).
-    Then if $h: E \rightarrow [-\infty, \infty]$ is any function such that $h \mid_{E\setminus E_0} = (f+g)\mid_{E\setminus E_0}$ then $h$ is also measureable by part (2) above.
-    Observe that such an $h$ always exists (e.g set $h = f+g$ on $E \setminus E_0$ and $h=0$ on $E_0$), and it is not unique at all.
-    However, as we just said, all such $h$ are measurable.
-    We thus can say $f+g$ is measurable on $E$.
-
-    \begin{prop}
-        $f,g: E \rightarrow [-\infty, \infty]$ measurable such that $f,g$ are finite a.e on $E$.
-        Then $\forall \alpha, \beta \in \R$, $\alpha f + \beta g$ and $f g$ are measurable on $E$.
-    \end{prop}
-
-    However, composition of two measurable functions may fail to be measurable:
-
-    \underline{Ex:} If $E \subset \R$ measurable let $\chi_{E}$ be its characteristic function
-    \[
-        \chi_E (x) = \begin{cases}
-                         1 & \text{ if } x \in E \\
-                         0 & \text{ if } x \notin E
-        \end{cases}
-    \]
-    Then $\chi_E$ is measurable on $\R$
-    \[
-        \{ \chi_E < c \} = \begin{cases}
-                               \R & c \geq 1 \\
-                               E^c & 0 < c < 1 \\
-                               \emptyset & c \leq 0
-        \end{cases}
-    \]
-    Take then $\psi$ from before, $\psi: [0,1] \rightarrow [0,2]$ strictly increasing, with $A \subset [0,1], A \in \mathcal{L}$ and $\psi(A) \notin \Le$.
-    Extend $\psi$ to $\R$ as strictly increasing and continuous, for example with
-    \[
-        \tilde{\psi} (x) = \begin{cases}
-                               \psi(x) & \text{ if } 0 \leq x \leq 1\\
-                               x & \text{ if } x < 0 \\
-                               2x & \text{ if } x > 1
-        \end{cases}
-    \]
-    So $\tilde{\psi}: \R \rightarrow \R$ is a strictly increasing continuous bijection which implies $\tilde{\psi}^{-1}: \R \rightarrow \R$ is continuous $\implies \tilde{\psi}^{-1}$ measurable;
-    $\chi_A$ is also measurable, but $f = \chi_{A} \circ \tilde{\psi}^{-1} : \R \rightarrow \R$ is \emph{NOT} measurable, since if $I = \left( \frac{1}{2}, 2 \right)$, $\chi_{A}^{-1} (I) = A$ then $f^{-1}(I) = \tilde{\psi} \left( \chi_A ^{-1} (I) \right) = \tilde{\psi} (A) = \psi(A) \notin \Le$.
-
-    To reconcile this, we introduce the following:
-    \begin{prop}
-        If $g: E \rightarrow \R$ is measurable and $f: \R \rightarrow \R$ continuous then $f \circ g: E \rightarrow \R$ measurable.
-    \end{prop}
-
-    \begin{proof}
-        $\forall U \subset \R $ open,
-        \[
-            (f \circ g)^{-1}(U) = g^{-1}(f^{-1}(U)) \in \Le
-        \]
-        Since $f^{-1}(U)$ is open and $g$ is measurable.
-    \end{proof}
-
-    \underline{Example:} Take $f: E \rightarrow \R$ measurable, and $p \in \R > 0$.
-    Then $\card{f}^p: E \rightarrow \R$ is measurable (indeed $y \rightarrow \card{y}^p$ is continuous on $\R$)
-
-    \begin{prop}
-        Let $\{ f_j \}_{j=1}^{n}$ be a set of measurable functions $E \rightarrow \R$, then $\max_{1 \leq j \leq n} \{ f_j \}$ and $\min_{j} \{ f_j \}$ are measurable.
-    \end{prop}
-    \begin{proof}
-        \[
-            \{ x \in E \mid \max_{j} \{ f_j \} (x) > c \} = \bigcup_{j=1}^{n} \{ x \in E \mid f_j (x) > c \}
-        \]
-        While $\min \{f_j \} = - \max \{ -f_j \}$
-    \end{proof}
-
-    \textbf{\underline{Convergence of functions:}} $\{ f_n \}_{n=1}^{\infty}$, $f: E \rightarrow [-\infty, \infty], A \subset E$.
-    We say that $f_n \rightarrow f$ as $n \rightarrow \infty$
-    \begin{enumerate}
-        \item \underline{Pointwise} on $A$ if $\forall x \in A \lim_{n \rightarrow \infty} f_n (x) = f(x)$
-        \item \underline{Pointwise a.e} on $A$ if $\exists B \subset \R$ such that $m(B) = 0$ and $f_n \rightarrow f$ pointwise on $A \setminus B$
-        \item \underline{Uniformly on $A$} if $f_n, f$ are $\R$-valued and $\forall \epsilon > 0 \; \exists n_0$ such that $\forall x \in A$, $\card{f_n(x) - f(x)} \leq \epsilon$, for all $n \geq n_0$.
-    \end{enumerate}
-
-    Clearly $(c) \implies (b) \implies (a)$ but the reverse arrows are all false.
-    For example $f_n (x) = x^n \rightarrow 0$ pointwise a.e on [0,1] but not pointwise on [0,1], and $f_n (x) = \sin(\frac{x}{n}) \rightarrow 0$ converges pointwise on $\R$ but not uniformly.
-
-    \begin{prop}
-        If $E \in \Le$ and $f,f_n: E \rightarrow [-\infty, \infty]$ with all $f_n$ being measurable and $f_n \rightarrow f$ pointwise on $E$, the $f$ is measurable.
-    \end{prop}
-
-    \begin{definition}[Simple Function]
-        If $E$ measurable, then $\psi: E \rightarrow \R$ is called simple if it  is measurable, and takes only a finite number of values.
-        Call these values $\{ c_j\}_{j=1}^{n}$, for some $n \geq 1$.
-        Then if we call $E_j = \psi^{-1} (c_j) = \{ x \in E \mid \psi(x) = c_j \}$ then we have $E_j$ measurable $\forall j = 1 \hdots n$ and $E = \cup_{j=1}^{n} E_j$ disjoint.
-        Also $\psi = c_j$ on $E_j$ so
-        \[
-            \boxed{\psi = \sum_{j=1}^{n} \chi_E c_j}
-        \]
-        In other words, simple functions are the same thing as finite linear combinations (with $\R$ coefficients) of characteristic functions of measurable sets.
-    \end{definition}
-
-    \underline{Approximation Lemma:} We have $E$ measurable and $f: E \rightarrow \R$ measurable.
-    Suppose $f$ is bounded, i.e $\exists C > 0$ such that $\card{f} \leq C$ then $\forall \epsilon \; \exists \phi_{\epsilon}, \psi_{\epsilon}$ simple functions on $E$ such that $\phi_{\epsilon} \leq f \leq \psi_{\epsilon}$  on $E$ and $0 \leq \psi_{\epsilon} - \phi_{\epsilon} \leq \epsilon$ on $E$.
-
-    \begin{prop}
-        $E \subset \R$ measurable, $f: E \rightarrow [-\infty, \infty]$.
-        Then $f$ is measurable $\iff \exists \{ \psi_n\}_{n=1}^{\infty}$, $\psi_{n}: E \rightarrow \R$ simple functions, $\psi_n \rightarrow f$ pointwise on $E$, and $\card{\psi_n} \leq \card{f}$ on $E$, for all $n$.
-        If $f \geq 0$, we may choose $\psi_n$ such that $\psi_{n+1} \leq \psi_n$ on $E \; \forall n$.
-    \end{prop}
-
-    \begin{definition}[Null-Set]
-        A set $A \subset \R$ with $\mstar{A} = 0$ is called a null-set.
-    \end{definition}
-
-    \begin{theorem}[Egorov's Theorem]
-        For $E \in \Le$ with $m(E) < \infty$, Let $\{ f_n \}_{n=1}^{\infty}$ be measurable functions.
-        $f_n : E \rightarrow [-\infty, \infty]$ which converge pointwise a.e to $f: E \rightarrow [-\infty, \infty]$ which is finite a.e on $E$ (i.e $f$ is $\R$-valued except for a null-set in $E$).
-        Then $\forall \epsilon > 0$, $\exists F \subset E$ closed set, such that $m(E \setminus F) \leq \epsilon$ and $f_n \rightarrow f$ uniformly on $F$.
-    \end{theorem}
-
-    To start, observe that we may assume there are $E_0, E_0 \pr \subset E$ two null sets such that $f_n \rightarrow f$ pointwise on $E \setminus E_0$ and $f: E \setminus E_0 \pr \rightarrow \R$.
-    Thus, both of these hold on $E \setminus (\underset{\text{still a null set}}{E_0 \cup E_0 \pr} )$, and if we prove Egorov on $ E \setminus (E_0 \cup E_0 \pr)$ then this gives Egorov on $E$.
-    Thus, up to relabeling $E \rightsquigarrow E \setminus (E_0 \cup E_0 \pr)$, we shall assume form the start that
-    \[
-        \boxed{f_n \rightarrow f \text{ pointwise on } E \text{ and } f: E \rightarrow \R}
-    \]
-    We already know that $f$ is measurable on $E$.
-
-    \begin{lemma}
-        Suppose we are in this setting.
-        Then, $\forall \eta > 0$, $\forall \delta > 0$, $\exists A \subset E, A \in \Le$, and $\exists N \geq 1$ such that $m(E \setminus A) \leq \delta$ and $\card{f_n - f} \leq \eta$ on $A$ for all $n \geq N$.
-    \end{lemma}
+    \input{measurable-functions}
 
 
+    \section{Integration}\label{sec:integration}
+    \input{integration}
+
+    \section{Lebesgue Measure in $\R^n$}\label{sec:lebesgue-measure-in-R^n}
+    \input{lebesgue-measure-in-r^n}
 
 \end{document}

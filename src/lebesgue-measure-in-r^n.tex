@@ -1,0 +1,70 @@
+We now briefly extend the theory of Lebesgue measure to $\R^n$, $n \geq 1$.
+To start, using open sets in $\R^n$, one defines the Borel $\sigma$-algebra $\mathcal{B}$ on $\R^n$.
+
+To define the Lebesuge outer measure, the role of intervals is played by rectangles (or boxes).
+A box $I$ in $\R^{n}$ is a product of intervals $I = I_1 \times \hdots \times I_n$ where each $I_j \subset \R$ is an interval.
+Then $I$ open $\iff I_j$ open $\forall j$, $I$ bounded $\iff I_j$ bounded $\forall j$.
+
+The analogue of the length $\ell (I)$ is now the Volume Vol$(I) = \prod_{j=1}^{n} \ell (I_j) \in [0,\infty]$.
+Clearly Vol$(I) < \infty \iff I$ bounded.
+
+If $A \subset \R^n$, let $\mathcal{C}_A = \left\{ \{ I_j\}_{j=1}^{\infty} \mid I_j \text{ bounded open boxes with } A \subset \cup_{j=1}^{\infty} I_j  \right\}$
+
+Again, we let
+\[
+    m^{\star} (A) \coloneqq \inf_{\{ I_j \} \in \mathcal{C}_A } \sum_{j=1}^{\infty} \text{Vol}(I_j)
+\]
+All of the classic properties of the case when $\R = 1$ also hold for $\R^n$.
+
+\underline{Product Sets:}
+
+\begin{lemma}
+    $A \subset \R^a$, $B \subset \R^b$ any sets, $A \times B \subset \R^{a+b}$, then $m^{\star}(A \times B) \leq m^{\star} (A) m^{\star}(B)$, with the convention that $0 \times \infty = 0$
+\end{lemma}
+
+\begin{prop}
+    If $A \subset \R^{a}$, $A \in \Le$, $B \subset \R^b$, $B \in \Le$, then $A \times B \subset \R^{a+b}$ is measurable.
+\end{prop}
+
+\begin{definition}[Slices]
+    $E \subset \R^n$, $(n \geq 2)$, suppose $E \in \Le$.
+    A slice of $E$ is a set of this form: write $\R^n = \R^a \times \R^b$, $a+b = n$.
+\end{definition}
+
+Pick any $x \in \R^{a}$ and let $E_x = \text{ slice } = \{ y \in \R^{b} \mid (x,y) \in E \}$.
+There is a problem: $E \in \Le \centernot\implies E_x \in \Le$
+
+\begin{theorem}[Fubini's Theorem]
+    Suppose $f: \R^n = \R^a \times \R^b \rightarrow [-\infty, \infty]$ is integrable with respect to Lebesgue on $\R^n$.
+    Then for a.e $y \in \R^b$, the slice $f(\cdot, y)$ is integrable in $\R^a$ and the function $y \mapsto \int_{\R^a} f(x,y)dx$ is integrable in $\R^b$, we also have
+    \[
+        \int_{\R^n} f = \int_{\R^b} \left( \int_{\R^a} f(x,y)dx \right)dy
+    \]
+\end{theorem}
+
+The theorem is symmetric in $x$ and $y$ so we also have $\int_{\R^n} f = \int_{\R^a} \left( \int_{\R^b} f(x,y)dy \right)dx$ and for a.e $x \in \R^a$, $f(x,\cdot)$ is integrable in $\R^b$ and $x \mapsto \int_{\R^b} f(x,y)dy$ is integrable in $\R$.
+
+\begin{corollary}[Tonelli's Theorem]
+    $f: \R^n = \R^a \times \R^b \rightarrow [0, \infty]$ is measurable nonegative function.
+    Then for a.e $y \in \R^b$, $f(\cdot, y)$ is measurable on $\R$ and $y \mapsto \int_{\R^a} f(x,y) dx$ is measurable on $\R^b$, and
+    \[
+        \int_{\R^n} f = \int_{\R^b} \left(  \int_{\R^a} f(x,y)dx \right)dy
+    \]
+\end{corollary}
+
+Usually, one applies Tonelli to $\card{f}$, where $f$ is measurable on $\R^n$, so that $\int_{\R^n} \card{f} = \int_{\R^b} \left( \int_{\R^a} \card{f} (x,y) dx \right)dy$, so if the LHS is finite, so is the RHS, hence $f$ is integrable in $\R^n$, so Fubini applies to $f$,
+\[
+    \int_{\R^n} f = \int_{\R^b} \left( \int_{\R^a} f(x,y)dx \right)dy
+\]
+
+\begin{corollary}[Cavalieri's Formula]
+    $E \subset \R^n = \R^a \times \R^b$ measurable, then for a.e $y \in \R^b$, $E_y$ is measurable in $\R^a$.
+    Also $y \mapsto m(E_y)$ is a measurable function and
+    \[
+        \boxed{m(E) = \int_{\R^b} m(E_y) dy}
+    \]
+\end{corollary}
+
+\begin{corollary}
+    If $A \subset \R^a$, $A \in \Le$, $B \subset \R^b$, $B \in \Le$, then $A \times B \subset \R^{a+b}$ is measurable (we already knew that) and $m(A \times B) = m(A)m(B)$.
+\end{corollary}
